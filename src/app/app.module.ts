@@ -9,6 +9,7 @@ import { QueuepageComponent } from './queuepage/queuepage.component';
 import { ModelpageComponent } from './modelpage/modelpage.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { ActivecasesComponent } from './activecases/activecases.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ActivecasesComponent } from './activecases/activecases.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
