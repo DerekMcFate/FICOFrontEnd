@@ -1,0 +1,17 @@
+.navbar{
+  background-color: black !important;
+}
+a.navbar-brand{
+  width: 80px;
+}
+#userNavItem{
+  display: flex;
+  place-self: center flex-end;
+}
+.is-active{
+  color: darkgrey !important;
+}
+#avatarImage{
+  width: 50%;
+  height: 50%;
+}
