@@ -20,7 +20,7 @@ const routes: Routes = [
     component: QueuepageComponent
   },
   {
-    path: 'models',
+    path: 'model',
     component: ModelpageComponent
   },
   {
