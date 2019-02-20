@@ -9,7 +9,9 @@ a.navbar-brand{
   place-self: center flex-end;
 }
 .is-active{
-  color: darkgrey !important;
+  color: lightgray !important;
+  background-color: #413e3e;
+  border-radius: 6px;
 }
 #avatarImage{
   width: 50%;

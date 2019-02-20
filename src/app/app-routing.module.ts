@@ -4,7 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AnalystpageComponent } from './analystpage/analystpage.component';
 import { QueuepageComponent } from './queuepage/queuepage.component';
 import {NavigationbarComponent} from './navigationbar/navigationbar.component';
-import { ModelpageComponent } from './modelpage/modelpage.component';
+import {ModelpageComponent} from './modelpage/modelpage.component';
 
 const routes: Routes = [
   {
@@ -20,11 +20,11 @@ const routes: Routes = [
     component: QueuepageComponent
   },
   {
-    path: 'model',
+    path: 'models',
     component: ModelpageComponent
   },
   {
-    path: '',
+    path: ' ',
     component: HomepageComponent
   }
 
