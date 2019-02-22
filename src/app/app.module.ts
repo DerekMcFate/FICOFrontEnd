@@ -13,6 +13,10 @@ import { ActivecasesComponent } from './activecases/activecases.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AnalystsmallComponent } from './analystsmall/analystsmall.component';
+import { AnalystsidebarComponent } from './analystsidebar/analystsidebar.component';
+import { AnalystsubpagelistComponent } from './analystsubpagelist/analystsubpagelist.component';
+import { AnalystsubpagedetailedComponent } from './analystsubpagedetailed/analystsubpagedetailed.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ModelpageComponent,
     NavigationbarComponent,
     ActivecasesComponent,
+    AnalystsmallComponent,
+    AnalystsidebarComponent,
+    AnalystsubpagelistComponent,
+    AnalystsubpagedetailedComponent,
   ],
   imports: [
     BrowserModule,
