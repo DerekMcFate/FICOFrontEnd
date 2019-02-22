@@ -1,20 +1,25 @@
 <div class="container-fluid">
   <div id="todayCases" class="row">
     <div class="column-lg-12">
-      <h1 id="todayCasesTitle">Today's Cases</h1>
+      <div class="row">
+        <h1 id="todayCasesTitle">Today's Cases</h1>
+      </div>
+      <div class="row">
+        <p>two bar charts tracking today's cases, and then some bar chart talking about service and stuff</p>
+      </div>
     </div>
   </div>
   <br/>
   <br/>
+
   <div id = "overViewCardsContainer" class="row">
     <div class="text-center col-sm-3 mb-3 mb-md-0">
       <mdb-card>
         <mdb-card-body>
           <mdb-card-title>
-            <h3>Analysts</h3>
+            <h3 routerLink='/analysts'>Analysts</h3>
           </mdb-card-title>
-          <mdb-card-text>With supporting text below as a natural lead-in to additional content</mdb-card-text>
-          <a href="#!" mdbBtn color="primary">Go somewhere</a>
+          <mdb-card-text>Percentage of efficiency and top three "slowest performers"</mdb-card-text>
         </mdb-card-body>
       </mdb-card>
     </div>
@@ -22,10 +27,9 @@
       <mdb-card>
         <mdb-card-body>
           <mdb-card-title>
-            <h3>Queue</h3>
+            <h3 routerLink="/queue">Queue</h3>
           </mdb-card-title>
-          <mdb-card-text>With supporting text below as a natural lead-in to additional content</mdb-card-text>
-          <a href="#!" mdbBtn color="primary">Go somewhere</a>
+          <mdb-card-text>Overall efficiency, then three rows each a type of queue</mdb-card-text>
         </mdb-card-body>
       </mdb-card>
     </div>
@@ -33,12 +37,28 @@
       <mdb-card>
         <mdb-card-body>
           <mdb-card-title>
-            <h3>Models</h3>
+            <h3 routerLink="/models">Models</h3>
           </mdb-card-title>
-          <mdb-card-text>With supporting text below as a natural lead-in to additional content</mdb-card-text>
-          <a href="#!" mdbBtn color="primary">Go somewhere</a>
+          <mdb-card-text>False Positive rate. Three rows of reports of false positive rate of individual "models"</mdb-card-text>
         </mdb-card-body>
       </mdb-card>
     </div>
   </div>
+  <br/>
+  <div id="systemPerformanceRow" class="row">
+    <div class="col-lg-6">
+      <h2>Tuneable bar-chart, show by day,week,month; compare to date picker</h2>
+    </div>
+    <div class="col-sm-3">
+      <h2>Status reading, "analysts performing [well, poor] etc. suggestions and stuff</h2>
+    </div>
+  </div>
+  <br/>
+  <div id="aggPerformanceRow" class="row">
+    <div class="col-lg-9">
+      <h2>Point/line chart showing efficiency over time, currently shows day, but could also do week, etc</h2>
+    </div>
+  </div>
+
 </div>
+<router-outlet></router-outlet>
