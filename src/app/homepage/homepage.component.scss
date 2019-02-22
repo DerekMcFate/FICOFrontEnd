@@ -1,0 +1,25 @@
+.row{
+  justify-content: center;
+}
+#todayCasesTitle{
+  color: #fffafe !important;
+  justify-self: center;
+}
+#todayCases{
+  place-content: center center;
+  background-color: rgba(53, 59, 218, 0.93);
+}
+#overViewCardsContainer{
+  justify-content: center;
+  background-color: #8b2b23;
+}
+#systemPerformanceRow{
+  align-items: center;
+ background-color: #413e3e;
+}
+#systemPerformanceRow h2{
+  background-color: darkgoldenrod;
+}
+#aggPerformanceRow{
+  background-color: bisque;
+}

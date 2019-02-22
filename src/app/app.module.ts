@@ -13,6 +13,7 @@ import { ActivecasesComponent } from './activecases/activecases.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ModelpageComponent,
     NavigationbarComponent,
     ActivecasesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
