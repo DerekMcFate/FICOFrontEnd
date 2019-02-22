@@ -11,5 +11,5 @@ export class QueuepageComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
+
