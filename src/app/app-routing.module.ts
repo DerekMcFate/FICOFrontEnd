@@ -5,6 +5,8 @@ import { AnalystpageComponent } from './analystpage/analystpage.component';
 import { QueuepageComponent } from './queuepage/queuepage.component';
 import {NavigationbarComponent} from './navigationbar/navigationbar.component';
 import {ModelpageComponent} from './modelpage/modelpage.component';
+import {AnalystsubpagedetailedComponent} from './analystsubpagedetailed/analystsubpagedetailed.component';
+import {AnalystsubpagelistComponent} from './analystsubpagelist/analystsubpagelist.component';
 
 const routes: Routes = [
   {
@@ -13,7 +15,11 @@ const routes: Routes = [
   },
   {
     path: 'analysts',
-    component: AnalystpageComponent
+    component: AnalystpageComponent,
+    children: [
+      {path: '', component: AnalystsubpagelistComponent},
+      {path: 'detailed', component: AnalystsubpagedetailedComponent},
+    ]
   },
   {
     path: 'queue',
