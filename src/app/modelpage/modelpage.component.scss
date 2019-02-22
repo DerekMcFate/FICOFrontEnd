@@ -4,8 +4,7 @@
 
 #selectCompareContainer {
     width:30%;
-    min-width: 400px;
-    float:left;
+    height: 36px;
     border-style: inset;
 }
 
@@ -17,4 +16,40 @@
 #compareContainer {
     float:right;
     border-style: dotted;
+}
+
+#fprGraph, #efficiencyGraph {
+    height: 200px;
+    width: 30%;
+    border-style: solid;
+    display:inline-block;
+}
+
+#status {
+    height: 200px;
+    width: 20%;
+    position: fixed;
+    border-style: dotted;
+    display:inline-block;
+}
+
+#modelOverview {
+    p {
+        text-align: center;
+    }
+}
+
+#fraud {
+    width: 45%;
+    border-style: outset;
+    float: right;
+}
+
+#notFraud {
+    width: 45%;
+    border-style: outset;
+}
+
+#viewAllContainer {
+    text-align: center;
 }
