@@ -13,6 +13,7 @@ import { ActivecasesComponent } from './activecases/activecases.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FooterComponent } from './footer/footer.component';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
 import { AnalystsidebarComponent } from './analystpage/analystsidebar/analystsidebar.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
@@ -27,6 +28,7 @@ import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedet
     ModelpageComponent,
     NavigationbarComponent,
     ActivecasesComponent,
+    FooterComponent,
     AnalystsmallComponent,
     AnalystsidebarComponent,
     AnalystsubpagelistComponent,
