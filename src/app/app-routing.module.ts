@@ -7,8 +7,6 @@ import {NavigationbarComponent} from './navigationbar/navigationbar.component';
 import {ModelpageComponent} from './modelpage/modelpage.component';
 import {AnalystsubpagedetailedComponent} from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
 import {AnalystsubpagelistComponent} from './analystpage/analystsubpagelist/analystsubpagelist.component';
-import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
-import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
 
 const routes: Routes = [
   {
@@ -29,12 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'models',
-    component: ModelpageComponent,
-    children: [
-      {path: '', component: ModeloverviewComponent},
-      {path: 'details', component: CasedetailsComponent},
-
-    ]
+    component: ModelpageComponent
   },
   {
     path: ' ',

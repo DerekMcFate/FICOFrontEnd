@@ -1,7 +1,137 @@
-<div class="modelpage">
-  <div class="container-fluid">
-    <div class="row">
-      <router-outlet></router-outlet>
+<div id="modelContainer" class="container-fluid">
+  <h5><b>MODEL PERFORMANCE</b></h5>
+  <div id="selectCompareContainer">
+    <div id="selectContainer" class="">
+      Show:
+      <select>
+        <option value="today">Today</option>
+        <option value="day">Day</option>
+        <option value="week">Week</option>
+        <option value="month">Month</option>
+        <option value="quarter">Quarter</option>
+        <option value="year">Year</option>
+      </select>
+    </div>
+    <div id="compareContainer">
+        Compare:
+        <select>
+          <option value="yesterday">Yesterday</option>
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+          <option value="quarter">Quarter</option>
+          <option value="year">Year</option>
+        </select>
     </div>
   </div>
+  <div id="fprStatusContainer">
+    <div id="fprGraph">
+      False Positive Rate Graph
+    </div>
+    <mdb-card id="status">
+      <mdb-card-body>
+        <mdb-card-title>
+            Model Status:
+        </mdb-card-title>
+        <mdb-card-text>
+            Today's efficiency: 77%    Daily change: +9%
+            <br>
+            Models are stable
+            <br>
+            Model 241 needs help
+            <br>
+            Recommended: Assign top analysts into queues/cases using Model 241
+        </mdb-card-text>
+      </mdb-card-body>
+
+    </mdb-card>
+  </div>
+  <div id="efficiencyGraph">
+    Efficiency Graph
+  </div>
+  <br>
+  TODAY
+  <div id="modelOverview">
+    <p><b>Model 109 (34% of cases)</b></p>
+    <div id="fraud">
+        Show:
+        <select>
+          <option value="today">Today</option>
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+          <option value="quarter">Quarter</option>
+          <option value="year">Year</option>
+        </select>
+        <br>
+        Filter by:
+        <select>
+          <option value="all">All</option>
+          <option value="service">Service</option>
+          <option value="Account">Account</option>
+          <option value="Customer">Customer</option>
+        </select>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              Case ID
+            </div>
+            <div class="col">
+              Union Bank
+            </div>
+            <div class="col">
+              Queue
+              <br>
+              Top Priority
+            </div>
+            <div class="col">
+              5 Min.
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="notFraud">
+        Show:
+        <select>
+          <option value="today">Today</option>
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+          <option value="quarter">Quarter</option>
+          <option value="year">Year</option>
+        </select>
+        <br>
+        Filter by:
+        <select>
+          <option value="all">All</option>
+          <option value="service">Service</option>
+          <option value="Account">Account</option>
+          <option value="Customer">Customer</option>
+        </select>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              Case ID
+            </div>
+            <div class="col">
+              Union Bank
+            </div>
+            <div class="col">
+              Queue
+              <br>
+              Top Priority
+            </div>
+            <div class="col">
+              5 Min.
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="viewAllContainer" class="container-fluid">
+      <button type="button" id="viewAll" class="btn btn-primary">View all Model 109 cases</button>
+    </div>
+  </div>
+
 </div>

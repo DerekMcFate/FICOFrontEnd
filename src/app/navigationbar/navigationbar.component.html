@@ -1,9 +1,12 @@
-<mdb-navbar SideClass="navbar navbar-expand-md navbar-dark black" id="navbar">
-  <mdb-navbar-brand>
-    <a class="navbar-brand" ><img src="../../assets/img/FICOlogo.png" class="img-fluid" alt="Responsive image" routerLink="home"></a>
-  </mdb-navbar-brand>
-  <links>
-    <ul id="leftLinks" class="navbar-nav mr-auto">
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" routerLink="home"><img src="../../assets/img/FICOlogo.png" class="img-fluid" alt="Responsive image"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+          aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="home" [routerLinkActive]="'is-active'">Home</a>
       </li>
@@ -16,6 +19,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="models" [routerLinkActive]="'is-active'">Models</a>
       </li>
+
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li id="userNavItem" class="nav-item">
@@ -23,17 +27,19 @@
           <i class="fas fa-envelope"></i>
         </a>
       </li>
-      <li class="nav-item avatar dropdown" dropdown>
-        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" role="menu">
+      <li class="nav-item avatar mdbDropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">
           <img id="avatarImage" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image">
         </a>
-        <div *dropdownMenu id="avatarDropdown" class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-          <a class="dropdown-item" routerLink="">Profile</a>
-          <a class="dropdown-item" routerLink="">Settings</a>
-          <a class="dropdown-item" routerLink="">Logout</a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
     </ul>
-  </links>
-</mdb-navbar>
-
+  </div>
+</nav>
+<!--/.Navbar -->
+<router-outlet></router-outlet>
