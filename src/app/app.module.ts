@@ -28,11 +28,11 @@ import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedet
     ModelpageComponent,
     NavigationbarComponent,
     ActivecasesComponent,
-    FooterComponent,
     AnalystsmallComponent,
     AnalystsidebarComponent,
     AnalystsubpagelistComponent,
     AnalystsubpagedetailedComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
