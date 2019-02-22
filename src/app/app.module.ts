@@ -10,6 +10,7 @@ import { QueuepageComponent } from './queuepage/queuepage.component';
 import { ModelpageComponent } from './modelpage/modelpage.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { ActivecasesComponent } from './activecases/activecases.component';
+import { FooterComponent} from './footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -31,6 +32,7 @@ import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedet
     AnalystsidebarComponent,
     AnalystsubpagelistComponent,
     AnalystsubpagedetailedComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
