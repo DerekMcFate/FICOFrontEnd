@@ -10,14 +10,17 @@ import { QueuepageComponent } from './queuepage/queuepage.component';
 import { ModelpageComponent } from './modelpage/modelpage.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { ActivecasesComponent } from './activecases/activecases.component';
+import { FooterComponent} from './footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FooterComponent } from './footer/footer.component';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
 import { AnalystsidebarComponent } from './analystpage/analystsidebar/analystsidebar.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
 import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
+import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
+import { AnalystsfastestComponent } from './analystpage/analystsfastest/analystsfastest.component';
+import { AnalystsslowestComponent } from './analystpage/analystsslowest/analystsslowest.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedet
     AnalystsidebarComponent,
     AnalystsubpagelistComponent,
     AnalystsubpagedetailedComponent,
-    FooterComponent
+    FooterComponent,
+    AnalysttableComponent,
+    AnalystsfastestComponent,
+    AnalystsslowestComponent
   ],
   imports: [
     BrowserModule,
