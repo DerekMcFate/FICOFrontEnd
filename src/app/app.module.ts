@@ -42,7 +42,7 @@ import { CasedetailsComponent } from './modelpage/casedetails/casedetails.compon
     FooterComponent,
     AnalysttableComponent,
     AnalystsfastestComponent,
-    AnalystsslowestComponent
+    AnalystsslowestComponent,
     FooterComponent,
     ModelsidebarComponent,
     ModeloverviewComponent,
