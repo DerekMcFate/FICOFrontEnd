@@ -1,0 +1,25 @@
+<div class="container analysttable">
+
+<table mdbTable mdbTableScroll scrollY="true" maxHeight="600" >
+  <thead>
+  <tr>
+    <th *ngFor="let head of headElements; let i = index" scope="col" [mdbTableSort]="elements" [sortBy]="headElements[i]">{{head}}
+      <mdb-icon fas icon="sort"></mdb-icon>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let el of elements; let i = index">
+    <th scope="row">{{el.score}}</th>
+    <td>
+      <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{el.id}}</button>
+    </td>
+    <td>{{el.avgtime}}</td>
+    <td>{{el.assignedqueue}}</td>
+    <td>{{el.caseexpertise}}</td>
+    <td>{{el.casetypeexpertise}}</td>
+    <td>{{el.casestotal}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
