@@ -9,6 +9,7 @@ import { AnalystpageComponent } from './analystpage/analystpage.component';
 import { QueuepageComponent } from './queuepage/queuepage.component';
 import { ModelpageComponent } from './modelpage/modelpage.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import {FooterComponent} from './footer/footer.component';
 import { ActivecasesComponent } from './activecases/activecases.component';
 import { FooterComponent} from './footer/footer.component';
 
@@ -21,6 +22,7 @@ import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedet
 import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.component';
 import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
 import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
+
 
 @NgModule({
   declarations: [
