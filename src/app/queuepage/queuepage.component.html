@@ -15,7 +15,7 @@
 
           <!--Panel Header-->
           <div class="view view-cascade py-3 gradient-card-header info-color-dark">
-            <h5 class="mb-0"> Queue Performance </h5>
+            <h5 class="mb-0 mx-auto"  style="width: 250px"> Queue Performance </h5>
 
           </div>
           <!--/Panel Header-->
@@ -81,6 +81,23 @@
             </div>
             <!--Grid row-->
 
+            <div class="row pt-3 w-75 mb-3"  >
+                <div class="card" >
+                  <div class="card-body">
+                    This panel will contain "Overall" queue performance information as soon as it becomes available. Status Reading will also appear here.
+                  </div>
+                </div>
+            </div>
+
+            <div class="row pt-3" >
+              <div class="card" >
+                <div class="card-body">
+                  "Queue Performance Over Time" Graph will appear in this panel
+                </div>
+              </div>
+            </div>
+
+
 
           </div>
           <!--Panel content-->
@@ -109,7 +126,7 @@
 
           <!--Panel Header-->
           <div class="view view-cascade py-3 gradient-card-header info-color-dark">
-            <h5 class="mb-0"> Quality Control </h5>
+            <h5 class="mb-0 mx-auto"  style="width: 200px"> Quality Control </h5>
 
           </div>
           <!--/Panel Header-->
@@ -172,6 +189,66 @@
 
             </div>
             <!--Grid row-->
+            <div class="row pt-3">
+
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Slowest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Quickest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+
+
+            </div>
+
+            <div class="row">
+              <button mdbBtn class="pl-4 pr-4 mx-auto" style="width: 300px" type="button" color="primary" outline="true" mdbWavesEffect>View All Quality Control Analysts</button>
+            </div>
+
+
+
 
 
           </div>
@@ -201,7 +278,7 @@
 
           <!--Panel Header-->
           <div class="view view-cascade py-3 gradient-card-header info-color-dark">
-            <h5 class="mb-0"> High Risk Customer Queue </h5>
+            <h5 class="mb-0 mx-auto"  style="width: 300px"> High Risk Customer Queue </h5>
 
           </div>
           <!--/Panel Header-->
@@ -264,6 +341,66 @@
 
             </div>
             <!--Grid row-->
+            <div class="row pt-3">
+
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Slowest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Quickest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+
+
+            </div>
+
+            <div class="row">
+              <button mdbBtn class="pl-4 pr-4 mx-auto" style="width: 300px" type="button" color="primary" outline="true" mdbWavesEffect>View All High Risk Analysts</button>
+            </div>
+
+
+
 
 
           </div>
@@ -292,7 +429,7 @@
 
           <!--Panel Header-->
           <div class="view view-cascade py-3 gradient-card-header info-color-dark">
-            <h5 class="mb-0"> Priority Queue </h5>
+            <h5 class="mb-0 mx-auto"  style="width: 200px" > Priority Queue </h5>
 
           </div>
           <!--/Panel Header-->
@@ -357,17 +494,63 @@
 
             <!-- Grid ROw 2 -->
 
-            <div class="row">
+            <div class="row pt-3">
 
               <div class = "col-md">
-              testing
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Slowest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
               </div>
               <div class = "col-md">
-                testing 2
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Quickest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
               </div>
 
 
           </div>
+
+            <div class="row">
+              <button mdbBtn class="pl-4 pr-4 mx-auto" style="width: 300px" type="button" color="primary" outline="true" mdbWavesEffect>View All Top Priority Analysts</button>
+            </div>
 
 
           </div>
