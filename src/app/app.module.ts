@@ -14,6 +14,17 @@ import { ActivecasesComponent } from './activecases/activecases.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component';
+import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
+import { AnalystsidebarComponent } from './analystpage/analystsidebar/analystsidebar.component';
+import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
+import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
+import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
+import { AnalystsfastestComponent } from './analystpage/analystsfastest/analystsfastest.component';
+import { AnalystsslowestComponent } from './analystpage/analystsslowest/analystsslowest.component';
+import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.component';
+import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
+import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +36,17 @@ import { FooterComponent } from './footer/footer.component';
     NavigationbarComponent,
     ActivecasesComponent,
     FooterComponent,
+    AnalystsmallComponent,
+    AnalystsidebarComponent,
+    AnalystsubpagelistComponent,
+    AnalystsubpagedetailedComponent,
+    FooterComponent,
+    AnalysttableComponent,
+    AnalystsfastestComponent,
+    AnalystsslowestComponent,
+    ModelsidebarComponent,
+    ModeloverviewComponent,
+    CasedetailsComponent,
   ],
   imports: [
     BrowserModule,
