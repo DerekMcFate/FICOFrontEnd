@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs'
 import { Analyst } from './analyst.component';
 import { Queue } from './queue.component';
 import { FPRScore } from './fprScore.component';
 import { Case } from './case.component';
+import { json } from 'd3';
 
 @Injectable({
   providedIn: 'root'
@@ -14,21 +17,14 @@ export class DataService {
   fprScore$: FPRScore;
   case$: Case;
 
-  constructor() {
-    this.csvToJson()
+  constructor(private http: HttpClient) {
+    this.getJSON().subscribe(data => {
+
+      //console.log(data);
+    });
   }
 
-  async csvToJson() {
-    const csvFile="FICO_Data.csv"
-    const csv=require("csvtojson")
-    csv()
-    .fromFile(csvFile)
-    .then((jsonObj)=>{
-      console.log(jsonObj);
-    })
-    const jsonArray=csv().fromFile(csvFile);
-  }
-  getModels() {
-
+  public getJSON(): Observable<any> {
+    return this.http.get("queueData.json");
   }
 }
