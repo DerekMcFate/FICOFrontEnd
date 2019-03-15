@@ -3,7 +3,6 @@ import { Analyst } from './analyst.component';
 import { Queue } from './queue.component';
 import { FPRScore } from './fprScore.component';
 import { Case } from './case.component';
-declare var XLSX: any;
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +15,19 @@ export class DataService {
   case$: Case;
 
   constructor() {
-    if(typeof require !== 'undefined') XLSX = require('xlsx');
-    var workbook = XLSX.readFile('test.xlsx');
-    console.log(workbook)
+    this.csvToJson()
   }
 
+  async csvToJson() {
+    const csvFile="FICO_Data.csv"
+    const csv=require("csvtojson")
+    csv()
+    .fromFile(csvFile)
+    .then((jsonObj)=>{
+      console.log(jsonObj);
+    })
+    const jsonArray=csv().fromFile(csvFile);
+  }
   getModels() {
 
   }
