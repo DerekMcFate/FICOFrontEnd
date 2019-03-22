@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -11,7 +10,6 @@ import { ModelpageComponent } from './modelpage/modelpage.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import {FooterComponent} from './footer/footer.component';
 import { ActivecasesComponent } from './activecases/activecases.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
@@ -52,7 +50,8 @@ import { CasedetailsComponent } from './modelpage/casedetails/casedetails.compon
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

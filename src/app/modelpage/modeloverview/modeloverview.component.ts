@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-modeloverview',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModeloverviewComponent implements OnInit {
 
-  constructor() { }
+  fprScores$: Object;
+  
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.data.getModels().subscribe(
+      data => this.fprScores$ = data
+    );
   }
 
 }
