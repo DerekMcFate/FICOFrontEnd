@@ -46,9 +46,9 @@
   </div>
   <br>
   TODAY
-  <div class="card modelCard container-fluid">
+  <div *ngFor="let model of fprScores$" class="card modelCard container-fluid">
     <div>
-      <h5><b>Model 109 (34% of cases)</b></h5>
+      <h5><b>Model {{ model.SCORING_MODEL_NAME }} (34% of cases)</b></h5>
     </div>
     <div class="row fraudInfo">
       <div class="card col" id="notFraud">
