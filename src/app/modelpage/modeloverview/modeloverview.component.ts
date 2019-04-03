@@ -14,7 +14,7 @@ export class ModeloverviewComponent implements OnInit {
 
   ngOnInit() {
     this.data.getModels().subscribe(
-      data => this.fprScores$ = data
+      data => this.fprScores$ = this.data.groupObjects(data, "SCORING_MODEL_NAME")
     );
   }
 
