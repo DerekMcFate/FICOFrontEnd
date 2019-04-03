@@ -48,7 +48,7 @@
   TODAY
   <div *ngFor="let model of fprScores$" class="card modelCard container-fluid">
     <div>
-      <h5><b>Model {{ model.SCORING_MODEL_NAME }} (34% of cases)</b></h5>
+      <h5><b>Model {{ model[0].SCORING_MODEL_NAME }} (34% of cases)</b></h5>
     </div>
     <div class="row fraudInfo">
       <div class="card col" id="notFraud">
@@ -83,21 +83,21 @@
                 Queue
               </div>
               <div class="col title">
-                Elapsed Time
+                Status
               </div>
             </div>
-            <div class="row">
+            <div *ngFor="let entry of model" class="row">
               <div class="col">
-                  <a [routerLink]="['./details']">11111</a>
+                  <a [routerLink]="['./details']">{{ entry.MODEL_CREATION__CR }}</a>
               </div>
               <div class="col">
-                Union Bank
+                {{ entry.TENANT_ }}
               </div>
               <div class="col">
-                Top Priority
+                {{ entry.QUEUE_NAME }}
               </div>
               <div class="col">
-                5 Min.
+                {{ entry.CASE_STATUS_TYPE_CD }}
               </div>
             </div>
           </div>
@@ -134,21 +134,21 @@
               Queue
             </div>
             <div class="col title">
-              Elapsed Time
+              Status
             </div>
           </div>
-          <div class="row">
+          <div *ngFor="let entry of model" class="row">
             <div class="col">
-                <a [routerLink]="['./details']">22222</a>
+                <a [routerLink]="['./details']">{{ entry.MODEL_CREATION__CR }}</a>
             </div>
             <div class="col">
-              Chase Bank
+              {{ entry.TENANT_ }}
             </div>
             <div class="col">
-              High Risk Customer
+              {{ entry.QUEUE_NAME }}
             </div>
             <div class="col">
-              11 Min.
+              {{ entry.CASE_STATUS_TYPE_CD }}
             </div>
           </div>
         </div>
