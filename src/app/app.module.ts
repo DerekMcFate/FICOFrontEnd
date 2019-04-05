@@ -15,7 +15,6 @@ import { FooterComponent} from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
-import { AnalystsidebarComponent } from './analystsidebar/analystsidebar.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
 import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
 import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
@@ -37,7 +36,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     NavigationbarComponent,
     ActivecasesComponent,
     AnalystsmallComponent,
-    AnalystsidebarComponent,
     AnalystsubpagelistComponent,
     AnalystsubpagedetailedComponent,
     FooterComponent,
