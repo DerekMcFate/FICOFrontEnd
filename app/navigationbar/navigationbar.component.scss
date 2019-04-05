@@ -1,0 +1,33 @@
+a.navbar-brand{
+  width: 80px;
+}
+#userNavItem{
+  display: flex;
+  place-self: center flex-end;
+}
+.nav-item{
+  place-content: center center !important;
+}
+#leftLinks{
+  align-content: center;
+  margin-top:17px;
+}
+.is-active{
+  color: lightgray !important;
+  background-color: #413e3e;
+  border-radius: 6px;
+  border-bottom-color: #25801a !important;
+}
+#avatarImage{
+  width: 40%;
+  height: 40%;
+}
+#avatarDropdown{
+  background-color: #413e3e !important;
+}
+a.dropdown-item{
+  background-color: #413e3e !important;
+  color: white;
+  border-bottom : 2px black ridge;
+}
+
