@@ -1,4 +1,4 @@
-#modelContainer {
+3pi#modelContainer {
     display: grid;
     grid-row-gap:0px;
 }
@@ -24,15 +24,9 @@
 }
 
 #fprGraph, #efficiencyGraph {
-    height: 200px;
-    width: 400px;
-    border-style: solid;
-    display:inline-block;
 }
 
 #status {
-    height: 150px;
-    width: 400px;
     border-style: dotted;
     float: right;
     position: -webkit-sticky;
@@ -83,7 +77,6 @@ h5 {
 }
 
 .modelCard {
-    background-color: #0d6594;
     display: inline-grid;
 }
 

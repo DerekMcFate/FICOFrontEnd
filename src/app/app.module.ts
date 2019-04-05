@@ -24,6 +24,7 @@ import { AnalystsslowestComponent } from './analystpage/analystsslowest/analysts
 import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.component';
 import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
 import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { CasedetailsComponent } from './modelpage/casedetails/casedetails.compon
     ModelsidebarComponent,
     ModeloverviewComponent,
     CasedetailsComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

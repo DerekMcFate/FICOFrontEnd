@@ -1,6 +1,6 @@
 <div class="container analysttable">
 
-<table mdbTable mdbTableScroll scrollY="true" maxHeight="600" >
+<table mdbTable mdbTableScroll class="fico-table" scrollY="true" maxHeight="600" >
   <thead>
   <tr>
     <th *ngFor="let head of headElements; let i = index" scope="col" [mdbTableSort]="elements" [sortBy]="headElements[i]">{{head}}
