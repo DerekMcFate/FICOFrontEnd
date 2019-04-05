@@ -33,7 +33,7 @@ const routes: Routes = [
     children: [
       {path: '', component: ModeloverviewComponent},
       {path: 'details', component: CasedetailsComponent},
-      
+
     ]
   },
   {

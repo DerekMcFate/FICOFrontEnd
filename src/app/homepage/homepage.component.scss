@@ -1,26 +1,26 @@
 .row{
   justify-content: center;
 }
-#todayCasesTitle{
-  color: #fffafe !important;
+#home-today-cases-title{
+  color: black !important;
   justify-self: center;
 }
-#todayCases{
+#home-today-cases{
   place-content: center center;
-  background-color: white;
 }
-#overViewCardsContainer{
+#home-overview-card-container{
   justify-content: center;
-  background-color: #8b2b23;
 }
-#systemPerformanceRow{
+
+#home-system-performance-row{
   align-items: center;
- background-color: #413e3e;
 }
-#systemPerformanceRow h2{
-  background-color: darkgoldenrod;
+
+#home-system-performance-row h2{
+  color: darkgoldenrod;
 }
-#aggPerformanceRow{
-  background-color: bisque;
+
+#home-aggregate-performance-row{
+  color: bisque;
 }
 
