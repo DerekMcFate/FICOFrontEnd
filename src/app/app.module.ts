@@ -18,6 +18,14 @@ import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.c
 import { AnalystsidebarComponent } from './analystsidebar/analystsidebar.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
 import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
+import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
+import { AnalystsfastestComponent } from './analystpage/analystsfastest/analystsfastest.component';
+import { AnalystsslowestComponent } from './analystpage/analystsslowest/analystsslowest.component';
+import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.component';
+import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
+import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +40,15 @@ import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedet
     AnalystsidebarComponent,
     AnalystsubpagelistComponent,
     AnalystsubpagedetailedComponent,
-    FooterComponent
+    FooterComponent,
+    AnalysttableComponent,
+    AnalystsfastestComponent,
+    AnalystsslowestComponent,
+    FooterComponent,
+    ModelsidebarComponent,
+    ModeloverviewComponent,
+    CasedetailsComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
