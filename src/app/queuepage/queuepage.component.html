@@ -1,3 +1,520 @@
-<p>
-  queuepage works!
-</p>
+
+
+<!--Main layout-->
+<main xmlns:text-align="http://www.w3.org/1999/xhtml">
+  <div class="container-fluid" >
+
+    <!--Section: Main panel-->
+
+    <!-- <section class="mb-5" class="card card-cascade narrower mb-5">  -->
+      <!--Grid row-->
+    <mdb-card>
+      <mdb-card-title>
+        Queue Performance<br>
+      </mdb-card-title>
+      <mdb-card-body>
+      <div class="row fico-row">
+        <div class="col-8 fico-col">
+            <div class="row">
+                <!--Date select-->
+                <script>
+                  // Material Select Initialization
+                  $(document).ready(function () {
+                    $('.mdb-select').material_select();
+                  });
+                </script>
+
+                <p class="lead my-4">
+                  <span class=" info-color-light p-2">Show: </span>
+                </p>
+                <select class="mdb-select colorful-select dropdown-info">
+                  <option value="" disabled>Choose time period</option>
+                  <option value="1">Today</option>
+                  <option value="2">Day</option>
+                  <option value="3">Week</option>
+                  <option value="3">Month</option>
+                  <option value="3">Quarter</option>
+                  <option value="3">Year</option>
+                </select>
+                <script> $('.datepicker').pickadate();</script>
+                <!--Date pickers-->
+                <p class="lead my-4">
+                  <span class="info-color-light p-2">Compare to: </span>
+                </p>
+                <select class="mdb-select colorful-select dropdown-info">
+                  <option value="" disabled>Choose time period</option>
+                  <option value="1">Today</option>
+                  <option value="2">Day</option>
+                  <option value="3">Week</option>
+                  <option value="3">Month</option>
+                  <option value="3">Quarter</option>
+                  <option value="3">Year</option>
+                </select>
+              <!--Grid column-->
+              <div class="col-md-6 mb-4 text-center"></div>
+              <!--Grid column-->
+            </div>
+            <!--Grid row-->
+            <div class="row pt-3 w-75 mb-3"  >
+                <div class="card" >
+                  <div class="card-body">
+                    This panel will contain "Overall" queue performance information as soon as it becomes available. Status Reading will also appear here.
+                  </div>
+                </div>
+            </div>
+
+            <div class="row pt-3" >
+              <div class="card" >
+                <div class="card-body">
+                  "Queue Performance Over Time" Graph will appear in this panel
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      </mdb-card-body>
+    </mdb-card>
+
+    <mdb-card>
+      <mdb-card-title>
+        Quality Control Queue<br>
+      </mdb-card-title>
+      <mdb-card-body>
+      <div class="row fico-row">
+
+        <!--Grid column-->
+        <div class="col-8 fico-col">
+          <!--Panel content-->
+          <div class="card-body">
+
+            <!--Grid row-->
+            <div class="row">
+
+
+              <!--Date select-->
+              <script>
+                // Material Select Initialization
+                $(document).ready(function () {
+                  $('.mdb-select').material_select();
+                });
+              </script>
+
+              <p class="lead my-4">
+                <span class=" info-color-light p-2">Show: </span>
+              </p>
+              <select class="mdb-select colorful-select dropdown-info">
+                <option value="" disabled>Choose time period</option>
+                <option value="1">Today</option>
+                <option value="2">Day</option>
+                <option value="3">Week</option>
+                <option value="3">Month</option>
+                <option value="3">Quarter</option>
+                <option value="3">Year</option>
+              </select>
+
+
+
+              <script> $('.datepicker').pickadate();</script>
+
+              <!--Date pickers-->
+              <p class="lead my-4">
+                <span class="info-color-light p-2">Filter By: </span>
+              </p>
+
+              <select class="mdb-select colorful-select dropdown-info">
+                <option value="" disabled>All Case Levels</option>
+                <option value="1">Service</option>
+                <option value="2">Account</option>
+                <option value="3">Customer </option>
+
+              </select>
+
+
+              <!--Grid column-->
+              <div class="col-md-6 mb-4 text-center">
+
+
+
+              </div>
+              <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+            <div class="row pt-3">
+
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Slowest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Quickest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+
+
+            </div>
+
+            <div class="row">
+              <button mdbBtn class="pl-4 pr-4 mx-auto" style="width: 300px" type="button" color="primary" outline="true" mdbWavesEffect>View All Quality Control Analysts</button>
+            </div>
+
+
+
+
+
+          </div>
+          <!--Panel content-->
+
+
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      </mdb-card-body>
+    </mdb-card>
+
+    <mdb-card>
+      <mdb-card-title>
+        High Risk Customer Queue <br>
+      </mdb-card-title>
+      <mdb-card-body>
+      <!--Grid row-->
+      <div class="row fico-row">
+
+        <!--Grid column-->
+        <div class="col-8 fico-col">
+
+
+
+
+          <!--Panel content-->
+          <div class="card-body">
+
+            <!--Grid row-->
+            <div class="row">
+
+
+              <!--Date select-->
+              <script>
+                // Material Select Initialization
+                $(document).ready(function () {
+                  $('.mdb-select').material_select();
+                });
+              </script>
+
+              <p class="lead my-4">
+                <span class=" info-color-light p-2">Show: </span>
+              </p>
+              <select class="mdb-select colorful-select dropdown-info">
+                <option value="" disabled>Choose time period</option>
+                <option value="1">Today</option>
+                <option value="2">Day</option>
+                <option value="3">Week</option>
+                <option value="3">Month</option>
+                <option value="3">Quarter</option>
+                <option value="3">Year</option>
+              </select>
+
+
+
+              <script> $('.datepicker').pickadate();</script>
+
+              <!--Date pickers-->
+              <p class="lead my-4">
+                <span class="info-color-light p-2">Filter By: </span>
+              </p>
+
+              <select class="mdb-select colorful-select dropdown-info">
+                <option value="" disabled>All Case Levels</option>
+                <option value="1">Service</option>
+                <option value="2">Account</option>
+                <option value="3">Customer</option>
+
+              </select>
+
+
+              <!--Grid column-->
+              <div class="col-md-6 mb-4 text-center">
+
+
+
+              </div>
+              <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+            <div class="row pt-3">
+
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Slowest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Quickest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+
+
+            </div>
+
+            <div class="row">
+              <button mdbBtn class="pl-4 pr-4 mx-auto" style="width: 300px" type="button" color="primary" outline="true" mdbWavesEffect>View All High Risk Analysts</button>
+            </div>
+
+
+
+
+
+          </div>
+          <!--Panel content-->
+
+
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      </mdb-card-body>
+    </mdb-card>
+    <mdb-card>
+      <mdb-card-title>
+        Priority Queue <br>
+      </mdb-card-title>
+      <mdb-card-body>
+        <!--Grid row-->
+        <div class="row fico-row">
+
+          <!--Grid column-->
+          <div class="col-8 fico-col">
+          <!--/Panel Header-->
+
+
+
+          <!--Panel content-->
+          <div class="card-body">
+
+            <!--Grid row-->
+            <div class="row">
+
+
+              <!--Date select-->
+              <script>
+                // Material Select Initialization
+                $(document).ready(function () {
+                  $('.mdb-select').material_select();
+                });
+              </script>
+
+              <p class="lead my-4">
+                <span class=" info-color-light p-2">Show: </span>
+              </p>
+              <select class="mdb-select colorful-select dropdown-info">
+                <option value="" disabled>Choose time period</option>
+                <option value="1">Today</option>
+                <option value="2">Day</option>
+                <option value="3">Week</option>
+                <option value="3">Month</option>
+                <option value="3">Quarter</option>
+                <option value="3">Year</option>
+              </select>
+
+
+
+              <script> $('.datepicker').pickadate();</script>
+
+              <!--Date pickers-->
+              <p class="lead my-4">
+                <span class="info-color-light p-2">Filter By: </span>
+              </p>
+
+              <select class="mdb-select colorful-select dropdown-info">
+                <option value="" disabled>All Case Levels</option>
+                <option value="1">Service</option>
+                <option value="2">Account</option>
+                <option value="3">Customer</option>
+              </select>
+
+
+              <!--Grid column-->
+              <div class="col-md-6 mb-4 text-center">
+
+
+
+              </div>
+              <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+            <!-- Grid ROw 2 -->
+
+            <div class="row pt-3">
+
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Slowest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+              <div class = "col-md">
+
+                <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                  <mdb-card-header>Quickest Analysts</mdb-card-header>
+                  <mdb-card-body>
+                    <table  mdbTable small="true" responsive="true">
+                      <thead>
+                      <tr>
+                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr mdbTableCol *ngFor="let el of elements">
+                        <th scope="row">{{el.id}}</th>
+                        <td>{{el.first}}</td>
+                        <td>{{el.last}}</td>
+                        <td>{{el.handle}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </mdb-card-body>
+                </mdb-card>
+
+              </div>
+
+
+          </div>
+
+            <div class="row">
+              <button mdbBtn class="pl-4 pr-4 mx-auto" style="width: 300px" type="button" color="primary" outline="true" mdbWavesEffect>View All Top Priority Analysts</button>
+            </div>
+
+
+          </div>
+          <!--Panel content-->
+
+
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+
+      </mdb-card-body>
+    </mdb-card>
+
+
+  </div>
+</main>
+<!--Main layout-->
+

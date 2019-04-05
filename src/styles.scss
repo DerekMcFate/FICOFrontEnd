@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+.graph-elem {
+
+}
+
+.container-fluid {
+  background-color: lightgreen;
+}
+
+mdbBtn{
+
+}
+
+.chart {
+  background-color: lightgrey;
+}
+
+.fico-col {
+  margin-left: 16px;
+}
+.fico-row{
+  background-color: lavender;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left:8px;
+  margin-right: 8px;
+}
+
+.fico-container{
+  background-color: blanchedalmond;
+  padding: 2px;
+}
+
+.status-container {
+  background-color: aquamarine;
+}
+
+.fico-table {
+  background-color: khaki;
+  width: -moz-available;
+}
+mdb-card {
+  border-radius: 6px !important;
+  background-color: aquamarine;
+  width: available;
+
+}
+mdb-card-body{
+  height: fit-content;
+  width: available;
+  background-color: aquamarine;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  color: black !important;
+
+}
+
+mdb-card-title{
+  width: available;
+  text-align: center;
+}
+
+.fico-card-text{
+  border-radius: 0px !important;
+  font-size: 12px !important;
+  color: black !important;
+}
+

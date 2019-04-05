@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-analystsubpagelist',
   templateUrl: './analystsubpagelist.component.html',
-  styleUrls: ['./analystsubpagelist.component.scss']
+  styleUrls: ['./analystsubpagelist.component.scss', '../../app.component.scss']
 })
 export class AnalystsubpagelistComponent implements OnInit {
 
