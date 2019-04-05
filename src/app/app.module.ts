@@ -9,13 +9,13 @@ import { AnalystpageComponent } from './analystpage/analystpage.component';
 import { QueuepageComponent } from './queuepage/queuepage.component';
 import { ModelpageComponent } from './modelpage/modelpage.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
-import {FooterComponent} from './footer/footer.component';
 import { ActivecasesComponent } from './activecases/activecases.component';
+import { FooterComponent} from './footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
-import { AnalystsidebarComponent } from './analystpage/analystsidebar/analystsidebar.component';
+import { AnalystsidebarComponent } from './analystsidebar/analystsidebar.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
 import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
 import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
