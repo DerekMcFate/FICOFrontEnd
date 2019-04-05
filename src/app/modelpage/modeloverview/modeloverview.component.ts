@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-modeloverview',
@@ -13,8 +14,11 @@ export class ModeloverviewComponent implements OnInit {
   confirmedNotFraudHeadElements =
     ['Case ID', 'Bank Name', 'Queue', 'Elapsed Time'];
 
-  constructor() { }
+  fprScores$: Object;
+  queues$: Object;
+  combinedData$: Object;
 
+  constructor(private data: DataService) { }
 
   ngOnInit() {
     this.elementsConfirmed.push({caseid: '22222', bank: 'Chase Bank',
@@ -23,6 +27,12 @@ export class ModeloverviewComponent implements OnInit {
       queue: 'Top Priority',  elapsedTime: '5 min.'});
 
 
+    this.data.getModels().subscribe(
+      data => this.fprScores$ = this.data.groupObjects(data, "SCORING_MODEL_NAME")
+    );
+    this.data.getQueues().subscribe(
+      data => this.queues$ = data
+    );
   }
 
 }

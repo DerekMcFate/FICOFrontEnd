@@ -53,10 +53,10 @@
     Efficiency Graph
   </div>
   <br>
-  TODAY
-  <div class="card modelCard container-fluid">
+  TODAY {{ queues$[0].CLIENT_ID }}
+  <div *ngFor="let model of fprScores$" class="card modelCard container-fluid">
     <div>
-      <h5><b>Model 109 (34% of cases)</b></h5>
+      <h5><b>Model {{ model[0].SCORING_MODEL_NAME }} (34% of cases)</b></h5>
     </div>
     <div class="row fico-row fraudInfo">
       <div class="col-6" id="notFraud">
@@ -153,4 +153,5 @@
       <button type="button" id="viewAll" class="btn btn-primary">View all Model 109 cases</button>
     </div>
   </div>
+
 </div>
