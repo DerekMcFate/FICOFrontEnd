@@ -45,7 +45,7 @@
     Efficiency Graph
   </div>
   <br>
-  TODAY
+  TODAY {{ queues$[0].CLIENT_ID }}
   <div *ngFor="let model of fprScores$" class="card modelCard container-fluid">
     <div>
       <h5><b>Model {{ model[0].SCORING_MODEL_NAME }} (34% of cases)</b></h5>
