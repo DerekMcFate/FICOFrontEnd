@@ -90,13 +90,13 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let el of elementsConfirmedNotFraud; let i = index">
+              <tr *ngFor="let el of getThree(isNotFraud(model)); let i = index">
                 <td>
-                  <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{el.caseid}}</button>
+                  <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{el.CLIENT_ID}}</button>
                 </td>
-                <td>{{el.bank}}</td>
-                <td>{{el.queue}}</td>
-                <td>{{el.elapsedTime}}</td>
+                <td>{{el.TENANT_}}</td>
+                <td>{{el.CASE_LEVEL_}}</td>
+                <td>{{el.CASE_STATUS_CD}}</td>
               </tr>
               </tbody>
             </table>
@@ -135,13 +135,13 @@
                 </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let el of elementsConfirmed; let i = index">
+              <tr *ngFor="let el of getThree(isFraud(model)); let i = index">
                 <td>
-                  <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{el.caseid}}</button>
+                  <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{el.CLIENT_ID}}</button>
                 </td>
-                <td>{{el.bank}}</td>
-                <td>{{el.queue}}</td>
-                <td>{{el.elapsedTime}}</td>
+                <td>{{el.TENANT_}}</td>
+                <td>{{el.CASE_LEVEL_}}</td>
+                <td>{{el.CASE_STATUS_CD}}</td>
               </tr>
               </tbody>
             </table>

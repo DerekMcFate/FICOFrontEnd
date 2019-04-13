@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { groupBy } from 'rxjs/internal/operators/groupBy';
 
 @Injectable({
   providedIn: 'root'
@@ -24,22 +25,19 @@ export class DataService {
     return this.http.get('assets/queueData.json');
   }
 
-  groupObjects(array, element) {
-    //This function is designed to organize elements in an array based on one of it's common keys.
-    var i = 0, val, index, values = [], result = [];
-    for (; i < array.length; i++) {
-      val = array[i][element];
-      index = values.indexOf(val);
-      if(index > -1)
-        result[index].push(array[i]);
-      else {
-        values.push(val);
-        result.push([array[i]]);
-      }
-    }
-    console.log("Grouped Objects!\n");
-    console.log(result);
-    return result
+  groupBy(array, key) {
+    //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
+    //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
+    var group = array.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+    //Prints the array to the console for viewing the data in browser
+
+    //console.log("groupBy Object");
+    //console.log(Object.values(group));
+    return Object.values(group);
+    
   }
 
   mergeData(array1, array2, key) {

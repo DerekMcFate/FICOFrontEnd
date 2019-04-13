@@ -10,9 +10,9 @@ export class ModeloverviewComponent implements OnInit {
   elementsConfirmed: any = [];
   elementsConfirmedNotFraud: any = [];
   confirmedHeadElements =
-    ['Case ID', 'Bank Name', 'Queue', 'Elapsed Time'];
+    ['Case ID', 'Bank Name', 'Queue', 'Status'];
   confirmedNotFraudHeadElements =
-    ['Case ID', 'Bank Name', 'Queue', 'Elapsed Time'];
+    ['Case ID', 'Bank Name', 'Queue', 'Status'];
 
   fprScores$: Object;
   queues$: Object;
@@ -28,11 +28,37 @@ export class ModeloverviewComponent implements OnInit {
 
 
     this.data.getModels().subscribe(
-      data => this.fprScores$ = this.data.groupObjects(data, "SCORING_MODEL_NAME")
+      data => this.fprScores$ = this.data.groupBy(data, "SCORING_MODEL_NAME")
     );
     this.data.getQueues().subscribe(
       data => this.queues$ = data
     );
+
+    this.combinedData$ = this.data.mergeData(this.data.groupBy(this.data.getModels(), "SCORING_MODEL_NAME"), this.data.getQueues(), "CLIENT_ID")
+  }
+
+  isFraud(array) {
+    var fraudArr = [];
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].CASE_STATUS_CD.includes("CONFIRMED_FRAUD")) {
+        fraudArr.push(array[i]);
+      }
+    }
+    return fraudArr;
+  }
+
+  isNotFraud(array) {
+    var notFraudArr = [];
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].CASE_STATUS_CD.includes("NOT_FRAUD")) {
+        notFraudArr.push(array[i]);
+      }
+    }
+    return notFraudArr;
+  }
+
+  getThree(array) {
+    return [array[0], array[1], array[2]];
   }
 
 }
