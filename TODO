@@ -1,0 +1,59 @@
+Code Wiring:
+Analysts (Detailed)
+  Show today - SET AS FAKE DATE
+  Show yesterday
+  Dropdown Actions
+Analyst (Main)
+  Get data into table
+  Get data into top 3 and slowest 3 analysts.
+
+Home
+  Today cases
+  Analysts overview
+  Queue overview
+  Models overview
+  Tunable bar chart
+  Status Message
+  Efficiency over time chart
+
+Sidebar:
+  Unfinished cases
+
+Percentage Bars
+  1)Status of cases
+  2)Case types
+
+Queues
+  Queue performance graph with selectors
+  Quality control slowest and fastest w/ selectors
+  View all quality control analysts(need new component)
+  High risk customer slowest and fastest w/ selectors
+  View all high risk analysts(need new component)
+  Priority Queue slowest and fastest w/ selectors
+  View all priority analysts(need new component)
+
+Navbar
+  Remove avatar
+  Remove notifications or add a system for it.
+  Default to home page
+
+Model
+  False positive rate graph w/ selectors
+  Model status Info w/ selectors
+  Efficiency Graph w/ selectors
+  FFM.FRD.CARD Confirmed Fraud table w/ selectors
+  FFM.FRD.CARD Confirmed not Fraud table w/ selectors
+  FFM.FRD.CARD View all cases
+
+  FFM.FRD.CARD Confirmed Fraud table w/ selectors
+  FFM.FRD.CARD Confirmed not Fraud table w/ selectors
+  FFM.FRD.CARD View all cases
+
+  FFM.FRD.CARD.APPT Confirmed Fraud table w/ selectors
+  FFM.FRD.CARD.APPT Confirmed not Fraud table w/ selectors
+  FFM.FRD.CARD.APPT View all cases
+
+  FP.FRD.CARD.INTEL Confirmed Fraud table w/ selectors
+  FP.FRD.CARD.INTEL Confirmed not Fraud table w/ selectors
+  FP.FRD.CARD.INTEL View all cases
+

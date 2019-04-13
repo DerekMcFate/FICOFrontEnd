@@ -1,19 +1,23 @@
 <div id="modelContainer" class="container-fluid">
-  <h5><b>MODEL PERFORMANCE</b></h5>
-  <div class="row">
-    <div class="card container" id="selectCompareContainer">
-      <div id="selectContainer">
-        Show:
-        <select>
-          <option value="today">Today</option>
-          <option value="day">Day</option>
-          <option value="week">Week</option>
-          <option value="month">Month</option>
-          <option value="quarter">Quarter</option>
-          <option value="year">Year</option>
-        </select>
-      </div>
-      <div id="compareContainer">
+  <mdb-card>
+    <mdb-card-title>
+      <h2>MODEL PERFORMANCE</h2>
+
+    </mdb-card-title>
+    <mdb-card-body>
+      <div class="row">
+        <div id="selectContainer">
+          Show:
+          <select>
+            <option value="today">Today</option>
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="quarter">Quarter</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
+        <div id="compareContainer">
           Compare:
           <select>
             <option value="yesterday">Yesterday</option>
@@ -23,140 +27,164 @@
             <option value="quarter">Quarter</option>
             <option value="year">Year</option>
           </select>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="card row graph" id="fprGraph">
-      False Positive Rate Graph
-    </div>
-    <div class="card" id="status">
-      Model Status: <br>
-      Today's efficiency: 77% Daily change: +9%
-      <br>
-      Models are stable
-      <br>
-      Model 241 needs help
-      <br>
-      Recommended: Assign top analysts into queues/cases using Model 241
-    </div>
-  </div>
-  <div class="card row graph" id="efficiencyGraph">
-    Efficiency Graph
-  </div>
-  <br>
-  TODAY {{ queues$[0].CLIENT_ID }}
-  <div *ngFor="let model of fprScores$" class="card modelCard container-fluid">
-    <div>
-      <h5><b>Model {{ model[0].SCORING_MODEL_NAME }} (34% of cases)</b></h5>
-    </div>
-    <div class="row fraudInfo">
-      <div class="card col" id="notFraud">
-          <h5><b>Confirmed Not Fraud (XX cases)</b></h5>
-          Show:
-          <select class="selectBar">
-            <option value="today">Today</option>
-            <option value="day">Day</option>
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-            <option value="quarter">Quarter</option>
-            <option value="year">Year</option>
-          </select>
-          <br>
-          Filter by:
-          <select class="selectBar">
-            <option value="all">All</option>
-            <option value="service">Service</option>
-            <option value="Account">Account</option>
-            <option value="Customer">Customer</option>
-          </select>
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col title">
-                Case ID
-              </div>
-              <div class="col title">
-                Bank Name
-              </div>
-              <div class="col title">
-                Queue
-              </div>
-              <div class="col title">
-                Status
-              </div>
-            </div>
-            <div *ngFor="let entry of model" class="row">
-              <div class="col">
-                  <a [routerLink]="['./details']">{{ entry.MODEL_CREATION__CR }}</a>
-              </div>
-              <div class="col">
-                {{ entry.TENANT_ }}
-              </div>
-              <div class="col">
-                {{ entry.QUEUE_NAME }}
-              </div>
-              <div class="col">
-                {{ entry.CASE_STATUS_TYPE_CD }}
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="card col" id="fraud">
-        <h5><b>Confirmed Fraud (XX cases)</b></h5>
-        Show:
-        <select class="selectBar">
-          <option value="today">Today</option>
-          <option value="day">Day</option>
-          <option value="week">Week</option>
-          <option value="month">Month</option>
-          <option value="quarter">Quarter</option>
-          <option value="year">Year</option>
-        </select>
-        <br>
-        Filter by:
-        <select class="selectBar">
-          <option value="all">All</option>
-          <option value="service">Service</option>
-          <option value="Account">Account</option>
-          <option value="Customer">Customer</option>
-        </select>
-        <br>
-        <div class="container">
-          <div class="row">
-            <div class="col title">
-              Case ID
-            </div>
-            <div class="col title">
-              Bank Name
-            </div>
-            <div class="col title">
-              Queue
-            </div>
-            <div class="col title">
-              Status
-            </div>
-          </div>
-          <div *ngFor="let entry of model" class="row">
-            <div class="col">
-                <a [routerLink]="['./details']">{{ entry.MODEL_CREATION__CR }}</a>
-            </div>
-            <div class="col">
-              {{ entry.TENANT_ }}
-            </div>
-            <div class="col">
-              {{ entry.QUEUE_NAME }}
-            </div>
-            <div class="col">
-              {{ entry.CASE_STATUS_TYPE_CD }}
-            </div>
-          </div>
         </div>
       </div>
+
+    </mdb-card-body>
+  </mdb-card>
+  <div class="row fico-row">
+    <div class="col-6">
+      <mdb-card id=fprGraph>
+        <mdb-card-title>
+          <h3>False Positive Rate Graph</h3>
+        </mdb-card-title>
+        <mdb-card-body class="graph-elem">
+          <h1>FPR GRAPH HERE</h1>
+        </mdb-card-body>
+      </mdb-card>
     </div>
+    <div class="col-6">
+      <mdb-card id="status">
+        <mdb-card-title>
+          <h3>Model Status</h3>
+        </mdb-card-title>
+        <mdb-card-body>
+          Today's efficiency: 77% Daily change: +9%
+          <br>
+          Models are stable
+          <br>
+          Model 241 needs help
+          <br>
+          Recommended: Assign top analysts into queues/cases using Model 241
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+  <mdb-card>
+    <mdb-card-title>
+      <h3>Efficiency Graph</h3>
+    </mdb-card-title>
+    <mdb-card-body class="graph-elem">
+      EFFICIENCY GRAPH HERE
+    </mdb-card-body>
+  </mdb-card>
+  <br>
+  <!--  TODAY {{ queues$[0].CLIENT_ID }} -->
+  <mdb-card *ngFor="let model of fprScores$">
+    <mdb-card-title>
+      <h5><b>Model {{ model[0].SCORING_MODEL_NAME }} (34% of cases)</b></h5>
+    </mdb-card-title>
+    <mdb-card-body>
+      <div class="row">
+        <div class="col-6">
+          <mdb-card>
+            <mdb-card-title>
+              <h3>Confirmed Not Fraud<br>(XX cases)</h3>
+            </mdb-card-title>
+            <mdb-card-body>
+              <div class="row">
+                <div class="col-6">
+                  Show:
+                  <select class="selectBar">
+                    <option value="today">Today</option>
+                    <option value="day">Day</option>
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="year">Year</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  Filter by:<br>
+                  <select class="selectBar">
+                    <option value="all">All</option>
+                    <option value="service">Service</option>
+                    <option value="Account">Account</option>
+                    <option value="Customer">Customer</option>
+                  </select>
+                </div>
+              </div>
+              <table mdbTable mdbTableScroll scrollY="true" maxHeight="600">
+                <thead>
+                <tr>
+                  <th *ngFor="let head of confirmedNotFraudHeadElements; let i = index" scope="col"
+                      [mdbTableSort]="elementsConfirmedNotFraud" [sortBy]="confirmedNotFraudHeadElements[i]">{{head}}
+                    <mdb-icon fas icon="sort"></mdb-icon>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let el of elementsConfirmedNotFraud; let i = index">
+                  <td>
+                    <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm"
+                            mdbWavesEffect type="button" class="m-0">{{el.caseid}}</button>
+                  </td>
+                  <td>{{el.bank}}</td>
+                  <td>{{el.queue}}</td>
+                  <td>{{el.elapsedTime}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </mdb-card-body>
+          </mdb-card>
+        </div>
+        <div class="col-6">
+          <mdb-card>
+            <mdb-card-title>
+              <h3>Confirmed Fraud <br>(XX cases)</h3>
+            </mdb-card-title>
+            <mdb-card-body>
+              <div class="row">
+                <div class="col-6">
+                  Show:
+                  <select class="selectBar">
+                    <option value="today">Today</option>
+                    <option value="day">Day</option>
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="year">Year</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  Filter by:
+                  <select class="selectBar">
+                    <option value="all">All</option>
+                    <option value="service">Service</option>
+                    <option value="Account">Account</option>
+                    <option value="Customer">Customer</option>
+                  </select>
+                </div>
+              </div>
+              <table mdbTable mdbTableScroll class="fico-table" scrollY="true" maxHeight="600">
+                <thead>
+                <tr>
+                  <th *ngFor="let head of confirmedHeadElements; let i = index" scope="col"
+                      [mdbTableSort]="elementsConfirmed" [sortBy]="confirmedHeadElements[i]">{{head}}
+                    <mdb-icon fas icon="sort"></mdb-icon>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let el of elementsConfirmed; let i = index">
+                  <td>
+                    <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm"
+                            mdbWavesEffect type="button" class="m-0">{{el.caseid}}</button>
+                  </td>
+                  <td>{{el.bank}}</td>
+                  <td>{{el.queue}}</td>
+                  <td>{{el.elapsedTime}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </mdb-card-body>
+          </mdb-card>
+        </div>
+      </div>
+    </mdb-card-body>
+
     <div id="viewAllContainer" class="container-fluid">
       <button type="button" id="viewAll" class="btn btn-primary">View all Model 109 cases</button>
     </div>
-  </div>
-
+  </mdb-card>
 </div>

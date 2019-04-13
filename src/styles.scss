@@ -1,73 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  font-family: Roboto, sans-serif;
+}
 
+.analyst-card-body {
+border: solid black 6px;
+}
+
+.footer {
+  background-color: lightslategray;
+  width: 100%;
+  margin-left: 0px!important;
+  margin-right: 0px !important;
+}
+
+.background {
+  background-color: #c0c0c0 !important;
+}
 
 .graph-elem {
-
+  background-color: gray;
+  border-width: 2px;
+  border: solid;
+  color:black;
+  border-color: black;
 }
 
 .container-fluid {
-  background-color: lightgreen;
-}
-
-mdbBtn{
 
 }
 
-.chart {
-  background-color: lightgrey;
+.selectBar {
+  width: 100%;
 }
+
+.fico-selector{
+  height: 30px;
+}
+
+.fico-selector-row{
+  height: 30px;
+}
+
+.fico-button-l{
+  background-color: #0080cc !important;
+  border:none;
+  width: 300px;
+  border-radius: 12px !important;
+  color: #00609c;
+}
+
 
 .fico-col {
-  margin-left: 16px;
+  margin:auto;
 }
+
 .fico-row{
-  background-color: lavender;
-  margin-bottom: 8px;
-  margin-top: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin-left:8px;
-  margin-right: 8px;
+  background-color: inherit;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
+  margin:auto
 }
 
 .fico-container{
-  background-color: blanchedalmond;
+  padding-right: 6px;
+  padding-left: 6px;
+  border-width: 2px;
   padding: 2px;
 }
 
 .status-container {
-  background-color: aquamarine;
+  background-color: inherit;
+  border:solid;
+  border-color: white;
+  border-radius: 2px;
+  border-width: 2px;
+  padding:8px;
+  font-size: 16px;
+  color:white !important;
+
+}
+
+.fico-table-card-body {
+  background-color: royalblue;
+  border-style: solid;
+  border-color: slateblue;
+  border-radius: 2px;
+  width: -moz-available;
+  padding:2px !important;
+
 }
 
 .fico-table {
-  background-color: khaki;
-  width: -moz-available;
+
 }
-mdb-card {
+
+.card {
+  border:none !important;
   border-radius: 6px !important;
-  background-color: aquamarine;
+}
+
+mdb-card {
+  margin-left: 8px;
+  margin-right: 8px;
+  border-width: 0px;
+  border-radius: 6px !important;
+  border-color: #1f77a8;
+  border: solid;
+  background-color: darkslateblue;
   width: available;
 
 }
 mdb-card-body{
   height: fit-content;
   width: available;
-  background-color: aquamarine;
-  border-radius: 6px !important;
-  font-size: 12px !important;
+  background-color: white;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 18px !important;
   color: black !important;
-
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  margin-top: -12px !important;
 }
 
+.row{
+  justify-content: center;
+}
+
+.col-6{
+}
+h3{
+  color: white;
+  font-style: oblique;
+}
 mdb-card-title{
   width: available;
   text-align: center;
+  padding: 12px;
+  color: white;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-bottom: 0px;
+  background-color: #00609C;
 }
 
 .fico-card-text{
   border-radius: 0px !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
   color: black !important;
 }
 
