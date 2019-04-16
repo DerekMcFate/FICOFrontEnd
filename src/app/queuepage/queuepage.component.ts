@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-queuepage',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueuepageComponent implements OnInit {
 
-  constructor() {
+  queues$: Object;
+  
+  constructor(private data: DataService) {
   }
 
   ngOnInit() {
+    this.data.getQueues().subscribe(
+      data => this.queues$ = data
+    );
   }
 }
