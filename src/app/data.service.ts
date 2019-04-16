@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { groupBy } from 'rxjs/internal/operators/groupBy';
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +7,22 @@ import { groupBy } from 'rxjs/internal/operators/groupBy';
 export class DataService {
 
   constructor(private http: HttpClient) { }
-
+  //Returns Analyst data
   getAnalysts() {
     return this.http.get('assets/analystData.json');
   }
-
+  //Returns Case data
   getCases() {
     return this.http.get('assets/casesData.json');
   }
-
+  //Returns Model data
   getModels() {
     return this.http.get('assets/fprData.json');
   }
-  
+  //Returns Queue data
   getQueues() {
     return this.http.get('assets/queueData.json');
   }
-
   groupBy(array, key) {
     //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
     //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
