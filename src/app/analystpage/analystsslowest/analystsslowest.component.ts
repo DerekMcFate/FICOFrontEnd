@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analystsslowest.component.scss']
 })
 export class AnalystsslowestComponent implements OnInit {
+  slowAnalysts: any = [1,2,3];
 
   constructor() { }
 

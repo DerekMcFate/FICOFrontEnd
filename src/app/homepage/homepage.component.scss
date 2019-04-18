@@ -1,8 +1,6 @@
-.row{
-  justify-content: center;
-}
+
 #home-today-cases-title{
-  color: black !important;
+  color: black;
   justify-self: center;
 }
 #home-today-cases{
@@ -14,13 +12,5 @@
 
 #home-system-performance-row{
   align-items: center;
-}
-
-#home-system-performance-row h2{
-  color: darkgoldenrod;
-}
-
-#home-aggregate-performance-row{
-  color: bisque;
 }
 

@@ -35,7 +35,7 @@ export class DataService {
     //console.log("groupBy Object");
     //console.log(Object.values(group));
     return Object.values(group);
-    
+
   }
 
   mergeData(array1, array2, key) {
