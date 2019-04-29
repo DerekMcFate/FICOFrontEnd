@@ -1,7 +1,9 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { RouterLink} from '@angular/router';
-import * as d3 from 'd3';
-
+import {DataService} from '../data.service';
+import {NgxChartsModule, BarHorizontalStackedComponent } from '@swimlane/ngx-charts';
+import {area, line, curveLinear} from 'd3-shape';
+import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
 
 @Component({
   selector: 'app-homepage',
@@ -9,15 +11,25 @@ import * as d3 from 'd3';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit, AfterContentInit {
-  data = Array(3);
+  todayCases: any = [];
 
-  constructor() {
-    this.data =  [{name: 'Kellen', value: 5}, {name: 'Brett', value: 7}, {name: 'Vaughn', value: 5}];
+  view: any[] = [700,400];
+  showLegend = true;
+
+
+  constructor(private data: DataService) {
+
   }
   ngOnInit() {
-
+    this.data.getCases().subscribe((results) => {
+      this.processData(results);
+    })
   }
   ngAfterContentInit() {
+  }
+
+  processData(cases) {
+
   }
 
 }
