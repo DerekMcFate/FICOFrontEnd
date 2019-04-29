@@ -49,6 +49,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
     ModeloverviewComponent,
     CasedetailsComponent,
     SidebarComponent,
+    //NgxChartsModule
   ],
   imports: [
     BrowserModule,
