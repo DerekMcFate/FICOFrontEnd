@@ -25,6 +25,8 @@ import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.
 import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppRoutingModule,
     NgbModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
