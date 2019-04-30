@@ -6,15 +6,14 @@
       </div>
       <div class="row">
         <ngx-charts-bar-horizontal-stacked *ngIf = "canShow"
-          [view] = "view"
+          [view] = "view" 
           [results] = "finalData"
           [legend] = "showLegend"
           [gradient]="gradient"
           [xAxis]="showXAxis"
           [yAxis]="showYAxis"
           [legend]="showLegend"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
+          
           [xAxisLabel]="xAxisLabel"
           [yAxisLabel]="yAxisLabel"
           (select)="onSelect($event)">
