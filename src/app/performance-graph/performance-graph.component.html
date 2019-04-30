@@ -1,0 +1,11 @@
+<ngx-charts-area-chart-stacked *ngIf = "canShow"
+[view]="[width, height]"
+[legend] = "legendOptions"
+[results] = "allData"
+
+[activeEntries]="activeEntries"
+[animations]="animations"
+(legendLabelClick)="onClick($event)"
+(legendLabelActivate)="onActivate($event)"
+(legendLabelDeactivate)="onDeactivate($event)">
+></ngx-charts-area-chart-stacked>
