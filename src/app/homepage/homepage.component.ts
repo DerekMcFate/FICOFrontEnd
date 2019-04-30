@@ -22,10 +22,11 @@ export class HomepageComponent implements OnInit, AfterContentInit {
   todayCases: any = [];
 
   // chart stuff [results]="chartData" 
-  view: any[] = [700,400];
+  view: any[] = [700,200];
   canShow: boolean;
   chartData: any[]; 
   statusCount: any[];
+  finalData: any[];
 
   showXAxis = true;
   showYAxis = true;
@@ -55,6 +56,7 @@ export class HomepageComponent implements OnInit, AfterContentInit {
   processData(cases) {
     this.statusCount = [];
     this.chartData = [];
+    this.finalData = [];
     cases.forEach(element => {
       // increment counter if status exists
       if(this.statusCount[element.CASE_STATUS_TYPE_CD]) {
@@ -63,14 +65,22 @@ export class HomepageComponent implements OnInit, AfterContentInit {
         this.statusCount[element.CASE_STATUS_TYPE_CD] = 1;
       }
     });
+
+    let finalEntry = {
+      name: "Cases",
+      series: []
+    };
     for (var key in this.statusCount) {
       let singleEntry = {
         name: key,
         value: this.statusCount[key]
       };
-      this.chartData.push(singleEntry);
+      finalEntry.series.push(singleEntry);
     }
+
+    this.finalData.push(finalEntry);
     this.canShow = true;
-    console.log(this.chartData);
+
+    console.log(this.finalData);
   }
 }
