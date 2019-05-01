@@ -1,0 +1,17 @@
+<p>This still works</p>
+<ngx-charts-line-chart id="stackedChart" *ngIf = "canShow"
+[view]="view"
+[legend] = "legendOptions"
+[timeline] = "timeline"
+[results] = "allData"
+[showXAxisLabel]="showXAxisLabel"
+[showYAxisLabel]="showYAxisLabel"
+[xAxis]="showXAxis"
+[yAxis]="showYAxis"
+[xAxisLabel]="xAxisLabel"
+[activeEntries]="activeEntries"
+[animations]="animations"
+(legendLabelClick)="onClick($event)"
+(legendLabelActivate)="onActivate($event)"
+(legendLabelDeactivate)="onDeactivate($event)">
+></ngx-charts-line-chart>

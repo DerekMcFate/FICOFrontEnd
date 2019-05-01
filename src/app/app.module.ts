@@ -24,8 +24,10 @@ import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.com
 import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
 import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
 
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
     ModeloverviewComponent,
     CasedetailsComponent,
     SidebarComponent,
+    PerformanceGraphComponent,
     //NgxChartsModule
   ],
   imports: [
