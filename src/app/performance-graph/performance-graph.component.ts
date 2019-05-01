@@ -19,15 +19,16 @@ export class PerformanceGraphComponent implements OnInit {
 
   view = [700, 500];
   timeline = true;
+  animations = true;
   showXAxis = true;
   showYAxis = true;
   legendOptions = true;
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Date';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  yAxisLabel = 'Number of Cases';
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -123,11 +124,13 @@ export class PerformanceGraphComponent implements OnInit {
       OpenEntry.series.push(op);
     }
     let bigEntry = {
-      AllEntry,
-      ClosedEntry,
-      OpenEntry
+      AllEntry
+      //ClosedEntry,
+      //OpenEntry
     }
-    this.allData.push(bigEntry);
+    this.allData.push(OpenEntry);
+    this.allData.push(ClosedEntry);
+    this.allData.push(AllEntry);
     console.log(this.allData);
     this.canShow = true;
   }
