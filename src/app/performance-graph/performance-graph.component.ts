@@ -17,7 +17,7 @@ export class PerformanceGraphComponent implements OnInit {
   // results array for graph
   allData: any[];
 
-  view = [700, 500];
+  view = [600, 500];
   timeline = true;
   animations = true;
   showXAxis = true;
@@ -91,8 +91,8 @@ export class PerformanceGraphComponent implements OnInit {
         }
       }
     });
-    console.log(this.closedCases);
-    console.log(this.openCases);
+    //console.log(this.closedCases);
+    //console.log(this.openCases);
     let AllEntry = {
       name: "All Cases",
       series: []
@@ -131,7 +131,7 @@ export class PerformanceGraphComponent implements OnInit {
     this.allData.push(OpenEntry);
     this.allData.push(ClosedEntry);
     this.allData.push(AllEntry);
-    console.log(this.allData);
+    //console.log(this.allData);
     this.canShow = true;
   }
 
