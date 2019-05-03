@@ -10,8 +10,8 @@ import {
   style,
   animate
 } from '@angular/animations';
-import { ChartData } from 'chart.js';
-import {NgxChartsModule, BarHorizontalStackedComponent} from '@swimlane/ngx-charts';
+import {CasesChartComponent} from '../cases-chart/cases-chart.component';
+
 
 @Component({
   selector: 'app-homepage',
@@ -19,68 +19,7 @@ import {NgxChartsModule, BarHorizontalStackedComponent} from '@swimlane/ngx-char
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit, AfterContentInit {
-  todayCases: any = [];
-
-  // chart stuff [results]="chartData" 
-  view: any[] = [700,200];
-  canShow: boolean;
-  chartData: any[]; 
-  statusCount: any[];
-  finalData: any[];
-
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Country';
-  showYAxisLabel = true;
-  yAxisLabel = 'Population';
-
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-  constructor(private data: DataService) {}
-
-  ngOnInit() {
-    this.canShow = false;
-    this.data.getCases().subscribe((results) => {
-      this.processData(results);
-    })
-  }
-  ngAfterContentInit() {
-  }
-
-  //"CASE_STATUS_TYPE_CD": "ACTIVE"
-  processData(cases) {
-    this.statusCount = [];
-    this.chartData = [];
-    this.finalData = [];
-    cases.forEach(element => {
-      // increment counter if status exists
-      if(this.statusCount[element.CASE_STATUS_TYPE_CD]) {
-        this.statusCount[element.CASE_STATUS_TYPE_CD]++;
-      } else {
-        this.statusCount[element.CASE_STATUS_TYPE_CD] = 1;
-      }
-    });
-
-    let finalEntry = {
-      name: "Cases",
-      series: []
-    };
-    for (var key in this.statusCount) {
-      let singleEntry = {
-        name: key,
-        value: this.statusCount[key]
-      };
-      finalEntry.series.push(singleEntry);
-    }
-
-    this.finalData.push(finalEntry);
-    this.canShow = true;
-
-    console.log(this.finalData);
-  }
+  constructor() {}
+  ngOnInit() {}
+  ngAfterContentInit() {}
 }
