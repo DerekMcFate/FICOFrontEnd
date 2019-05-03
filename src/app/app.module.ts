@@ -3,6 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { AnalystpageComponent } from './analystpage/analystpage.component';
 import { QueuepageComponent } from './queuepage/queuepage.component';
@@ -14,7 +15,6 @@ import { FooterComponent} from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
-import { AnalystsidebarComponent } from './analystsidebar/analystsidebar.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
 import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
 import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
@@ -24,6 +24,11 @@ import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.com
 import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
 import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
+
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { CasesChartComponent } from './cases-chart/cases-chart.component';
+
 
 
 @NgModule({
@@ -36,7 +41,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     NavigationbarComponent,
     ActivecasesComponent,
     AnalystsmallComponent,
-    AnalystsidebarComponent,
     AnalystsubpagelistComponent,
     AnalystsubpagedetailedComponent,
     FooterComponent,
@@ -48,13 +52,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ModeloverviewComponent,
     CasedetailsComponent,
     SidebarComponent,
+    PerformanceGraphComponent,
+    CasesChartComponent,
+    //NgxChartsModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analystsfastest.component.scss']
 })
 export class AnalystsfastestComponent implements OnInit {
-
+  fastAnalysts: any = [1,2,3];
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

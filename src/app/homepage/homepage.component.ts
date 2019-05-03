@@ -1,6 +1,16 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, Input, Output, EventEmitter, ContentChild, TemplateRef, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { RouterLink} from '@angular/router';
-import * as d3 from 'd3';
+import {DataService} from '../data.service';
+import {ViewDimensions, ColorHelper, calculateViewDimensions } from '@swimlane/ngx-charts';
+import {area, line, curveLinear} from 'd3-shape';
+import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
+import {
+  trigger,
+  transition,
+  style,
+  animate
+} from '@angular/animations';
+import {CasesChartComponent} from '../cases-chart/cases-chart.component';
 
 
 @Component({
@@ -9,15 +19,7 @@ import * as d3 from 'd3';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit, AfterContentInit {
-  data = Array(3);
-
-  constructor() {
-    this.data =  [{name: 'Kellen', value: 5}, {name: 'Brett', value: 7}, {name: 'Vaughn', value: 5}];
-  }
-  ngOnInit() {
-
-  }
-  ngAfterContentInit() {
-  }
-
+  constructor() {}
+  ngOnInit() {}
+  ngAfterContentInit() {}
 }

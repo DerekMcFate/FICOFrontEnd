@@ -7,32 +7,55 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./modeloverview.component.scss']
 })
 export class ModeloverviewComponent implements OnInit {
-  elementsConfirmed: any = [];
-  elementsConfirmedNotFraud: any = [];
+  //These provide the headers for the tables in the model cards.
   confirmedHeadElements =
-    ['Case ID', 'Bank Name', 'Queue', 'Elapsed Time'];
+    ['Case ID', 'Bank Name', 'Queue', 'Status'];
   confirmedNotFraudHeadElements =
-    ['Case ID', 'Bank Name', 'Queue', 'Elapsed Time'];
-
+    ['Case ID', 'Bank Name', 'Queue', 'Status'];
+  //These are how you'll refer to your data in the html page
   fprScores$: Object;
   queues$: Object;
   combinedData$: Object;
 
+  //Add 'private data: DataService' to the constructor
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.elementsConfirmed.push({caseid: '22222', bank: 'Chase Bank',
-      queue: 'High Risk Customer',  elapsedTime: '11 min.'});
-    this.elementsConfirmedNotFraud.push({caseid: '11111', bank: 'Union Bank',
-      queue: 'Top Priority',  elapsedTime: '5 min.'});
-
-
-    this.data.getModels().subscribe(
-      data => this.fprScores$ = this.data.groupObjects(data, "SCORING_MODEL_NAME")
-    );
+    //Returns the data from the queue json file
     this.data.getQueues().subscribe(
       data => this.queues$ = data
     );
+    //Returns the data from the model json file, and organize the array by the key 'SCORING_MODEL_NAME' 
+    this.data.getModels().subscribe(
+      data => this.fprScores$ = this.data.groupBy(data, "SCORING_MODEL_NAME")
+    );
+    //Combines two arrays together based on a key shared between them *WIP*
+    this.combinedData$ = this.data.mergeData(this.data.groupBy(this.data.getModels(), "SCORING_MODEL_NAME"), this.data.getQueues(), "CLIENT_ID")
+  }
+
+  //This function returns an array of elements where 'CASE_STATUS_CD' contains the phrase 'CONFIRMED_FRAUD'
+  isFraud(array) {
+    var fraudArr = [];
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].CASE_STATUS_CD.includes("CONFIRMED_FRAUD")) {
+        fraudArr.push(array[i]);
+      }
+    }
+    return fraudArr;
+  }
+  //Same as above but for 'NOT_FRAUD'
+  isNotFraud(array) {
+    var notFraudArr = [];
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].CASE_STATUS_CD.includes("NOT_FRAUD")) {
+        notFraudArr.push(array[i]);
+      }
+    }
+    return notFraudArr;
+  }
+  //Returns the first three elements of the array
+  getThree(array) {
+    return [array[0], array[1], array[2]];
   }
 
 }

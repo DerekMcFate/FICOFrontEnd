@@ -7,39 +7,35 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   constructor(private http: HttpClient) { }
-
+  //Returns Analyst data
   getAnalysts() {
     return this.http.get('assets/analystData.json');
   }
-
+  //Returns Case data
   getCases() {
     return this.http.get('assets/casesData.json');
   }
-
+  //Returns Model data
   getModels() {
     return this.http.get('assets/fprData.json');
   }
-  
+  //Returns Queue data
   getQueues() {
     return this.http.get('assets/queueData.json');
   }
+  groupBy(array, key) {
+    //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
+    //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
+    var group = array.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+    //Prints the array to the console for viewing the data in browser
 
-  groupObjects(array, element) {
-    //This function is designed to organize elements in an array based on one of it's common keys.
-    var i = 0, val, index, values = [], result = [];
-    for (; i < array.length; i++) {
-      val = array[i][element];
-      index = values.indexOf(val);
-      if(index > -1)
-        result[index].push(array[i]);
-      else {
-        values.push(val);
-        result.push([array[i]]);
-      }
-    }
-    console.log("Grouped Objects!\n");
-    console.log(result);
-    return result
+    //console.log("groupBy Object");
+    //console.log(Object.values(group));
+    return Object.values(group);
+
   }
 
   mergeData(array1, array2, key) {
