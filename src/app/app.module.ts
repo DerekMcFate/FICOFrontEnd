@@ -27,6 +27,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
 
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { CasesChartComponent } from './cases-chart/cases-chart.component';
 
 
 
@@ -52,6 +53,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
     CasedetailsComponent,
     SidebarComponent,
     PerformanceGraphComponent,
+    CasesChartComponent,
     //NgxChartsModule
   ],
   imports: [
