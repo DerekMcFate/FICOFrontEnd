@@ -39,7 +39,19 @@
           <h3>False Positive Rate Graph</h3>
         </mdb-card-title>
         <mdb-card-body class="graph-elem">
-          <h1>FPR GRAPH HERE</h1>
+          <ngx-charts-bar-vertical-stacked *ngIf = "canShow"
+          [view] = "view" 
+          [results] = "finalData"
+          [legend] = "showLegend"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          (select)="onSelect($event)">
+         </ngx-charts-bar-vertical-stacked>
         </mdb-card-body>
       </mdb-card>
     </div>

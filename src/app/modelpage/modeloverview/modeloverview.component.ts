@@ -20,6 +20,24 @@ export class ModeloverviewComponent implements OnInit {
   combinedData$: Object;
   modelFlag: boolean;
   queueFlag: boolean;
+  //Model Chart
+  view: any[] = [700,200];
+  canShow: boolean;
+  chartData: any[]; 
+  statusCount: any[];
+  finalData: any[];
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Model';
+  showYAxisLabel = true;
+  yAxisLabel = 'Cases';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
 
   //Add 'private data: DataService' to the constructor
   constructor(private data: DataService) {
@@ -54,9 +72,49 @@ export class ModeloverviewComponent implements OnInit {
     this.data.getModels().subscribe(
       data => this.fprScores$ = this.data.groupBy(data, "SCORING_MODEL_NAME")
     );
+    this.canShow = false;
+    this.data.getModels().subscribe((results) => {
+      this.processData(this.data.groupBy(results, "SCORING_MODEL_NAME"));
+    })
     //Combines two arrays together based on a key shared between them *WIP*
     //this.combinedData$ = this.data.mergeData(this.data.getModels().pipe(map(fprScores$ => this.fprScores$ = fprScores$)), this.queues$, "TENANT_");
     //console.log("CombinedData", this.combinedData$);
+  }
+
+  processData(models) {
+    console.log("Models: ", models);
+    var modelCount = [];
+    this.statusCount = [];
+    this.chartData = [];
+    this.finalData = [];
+    //Gets overall model
+    
+    //Gets cases of a model
+    models.forEach(element => {
+
+      if(this.statusCount[element.CASE_STATUS_TYPE_CD]) {
+        this.statusCount[element.CASE_STATUS_TYPE_CD]++;
+      } else {
+        this.statusCount[element.CASE_STATUS_TYPE_CD] = 1;
+      }
+    });
+
+    let finalEntry = {
+      name: "Models",
+      series: []
+    };
+    for (var key in this.statusCount) {
+      let singleEntry = {
+        name: key,
+        value: this.statusCount[key]
+      };
+      finalEntry.series.push(singleEntry);
+    }
+
+    this.finalData.push(finalEntry);
+    this.canShow = true;
+
+    console.log("DATA DE FINALE: ", this.finalData);
   }
 
   mergeTime() {
