@@ -1,4 +1,4 @@
-3pi#modelContainer {
+#modelContainer {
     display: grid;
     grid-row-gap:0px;
 }
@@ -19,9 +19,6 @@
 #compareContainer {
     float:right;
     width: 200px;
-}
-
-#fprGraph, #efficiencyGraph {
 }
 
 #status {
@@ -53,9 +50,6 @@ h5 {
 .container {
     display: inline-grid;
     grid-row-gap: 7px;
-}
-
-#fraud, #notFraud {
 }
 
 .title {

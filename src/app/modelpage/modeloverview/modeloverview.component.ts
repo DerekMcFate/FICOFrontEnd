@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { queue } from 'rxjs/internal/scheduler/queue';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-modeloverview',
@@ -16,9 +18,32 @@ export class ModeloverviewComponent implements OnInit {
   fprScores$: Object;
   queues$: Object;
   combinedData$: Object;
+  modelFlag: boolean;
+  queueFlag: boolean;
 
   //Add 'private data: DataService' to the constructor
-  constructor(private data: DataService) { }
+  constructor(private data: DataService) {
+    // this.data.getModels().subscribe(
+    //   data => {
+    //     this.fprScores$ = this.data.groupBy(data, "TENANT_");
+    //     this.modelFlag = true;
+    //     if(this.queueFlag === true) {
+    //       //this.combinedData$ = this.data.mergeData(this.queues$, this.fprScores$, ["TENANT_", "CLIENT_ID"]);
+    //       //console.log(this.combinedData$);
+    //     }
+    //   }
+    // );
+    // this.data.getQueues().subscribe(
+    //   data => {
+    //     this.queues$ = this.data.groupBy(data, "TENANT_");
+    //     this.queueFlag = true;
+    //     if(this.modelFlag === true) {
+    //       //this.combinedData$ = this.data.mergeData(this.queues$, this.fprScores$, ["TENANT_", "CLIENT_ID"]);
+    //       //console.log(this.combinedData$);
+    //     }
+    //   }
+    // );
+  }
 
   ngOnInit() {
     //Returns the data from the queue json file
@@ -30,9 +55,13 @@ export class ModeloverviewComponent implements OnInit {
       data => this.fprScores$ = this.data.groupBy(data, "SCORING_MODEL_NAME")
     );
     //Combines two arrays together based on a key shared between them *WIP*
-    this.combinedData$ = this.data.mergeData(this.data.groupBy(this.data.getModels(), "SCORING_MODEL_NAME"), this.data.getQueues(), "CLIENT_ID")
+    //this.combinedData$ = this.data.mergeData(this.data.getModels().pipe(map(fprScores$ => this.fprScores$ = fprScores$)), this.queues$, "TENANT_");
+    //console.log("CombinedData", this.combinedData$);
   }
 
+  mergeTime() {
+    console.log("HOLA QUINSENYETA");
+  }
   //This function returns an array of elements where 'CASE_STATUS_CD' contains the phrase 'CONFIRMED_FRAUD'
   isFraud(array) {
     var fraudArr = [];
