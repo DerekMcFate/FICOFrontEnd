@@ -13,7 +13,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let el of allData$; let j = index">
+      <tr *ngFor="let el of data.analystData$; let j = index">
         <th scope="row" [ngStyle]="{'color': data.getAnalystScoreColor(el)}">{{data.getAnalystScore(el)}}</th>
         <td>
           <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{data.getAnalystUserID(el)}}</button>

@@ -5,8 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+  public analystData$: any ;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log("Constructor")
+    this.getAllData().subscribe(
+      (data) => {
+        this.analystData$ = this.groupBy(data, "USER_ID");
+        console.log(this.analystData$);
+      },
+    );
+
+  }
   //Returns Analyst data
   getAnalysts() {
     return this.http.get('assets/analystData.json');

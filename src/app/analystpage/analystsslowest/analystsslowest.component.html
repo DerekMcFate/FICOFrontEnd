@@ -1,6 +1,6 @@
 <mdb-card>
   <mdb-card-title>Slowest Analysts</mdb-card-title>
-  <mdb-card-body align="center" *ngFor="let a of data.getSlowestAnalysts(allData$)">
+  <mdb-card-body align="center" *ngFor="let a of data.getSlowestAnalysts(data.analystData$)">
     {{data.getAnalystUserID(a)}}<br>
     <div class="analyst-sm-graph">
       Queue: {{data.getAnalystQueue(a)}}<br>

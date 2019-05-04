@@ -7,15 +7,7 @@ import {DataService} from "../../data.service";
   styleUrls: ['./analystsfastest.component.scss']
 })
 export class AnalystsfastestComponent implements OnInit {
-  public allData$: any ;
   constructor(private data: DataService) {
-    console.log("Constructor")
-    this.data.getAllData().subscribe(
-      (data) => {
-        this.allData$ = this.data.groupBy(data, "USER_ID");
-        console.log(this.allData$);
-      },
-    );
   }
   ngOnInit() {
 
