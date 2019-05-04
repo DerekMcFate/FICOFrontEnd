@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../../data.service";
 
 @Component({
   selector: 'app-analystsslowest',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analystsslowest.component.scss']
 })
 export class AnalystsslowestComponent implements OnInit {
-  slowAnalysts: any = [1,2,3];
-
-  constructor() { }
-
+  public allData$: any ;
+  constructor(private data: DataService) {
+    console.log("Constructor")
+    this.data.getAllData().subscribe(
+      (data) => {
+        this.allData$ = this.data.groupBy(data, "USER_ID");
+        console.log(this.allData$);
+      },
+    );
+  }
   ngOnInit() {
   }
 

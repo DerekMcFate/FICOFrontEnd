@@ -11,6 +11,9 @@ export class DataService {
   getAnalysts() {
     return this.http.get('assets/analystData.json');
   }
+  getAllData() {
+    return this.http.get('assets/mergedData.json');
+  }
   //Returns Case data
   getCases() {
     return this.http.get('assets/casesData.json');
@@ -23,9 +26,12 @@ export class DataService {
   getQueues() {
     return this.http.get('assets/queueData.json');
   }
+
+
   groupBy(array, key) {
     //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
     //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
+    console.log(array);
     var group = array.reduce(function(rv, x) {
       (rv[x[key]] = rv[x[key]] || []).push(x);
       return rv;
@@ -34,6 +40,7 @@ export class DataService {
 
     //console.log("groupBy Object");
     //console.log(Object.values(group));
+    console.log(group);
     return Object.values(group);
 
   }
@@ -69,5 +76,42 @@ export class DataService {
     console.log("Merged Data!\n");
     console.log(newArray);
     return newArray;
+  }
+
+  public getFastestAnalysts(analystArr){
+    function Comparator(a, b) {
+      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
+      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return 1;
+      return 0;
+    }
+    var fastestAnalysts = analystArr.sort(Comparator).slice(0,3);
+    return fastestAnalysts;
+  }
+  public getSlowestAnalysts(analystArr){
+    function Comparator(a, b) {
+      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return -1;
+      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return 1;
+      return 0;
+    }
+    var slowestAnalysts = analystArr.sort(Comparator).slice(0,3);
+    return slowestAnalysts;
+  }
+
+  public getCasesPerDay(analyst){
+    return analyst[0]['CASES_PER_DAY'];
+  }
+  public getScoreColor(analyst){
+    var score = this.getScore(analyst);
+    if (score > 70){
+      return '#00FF00';
+    } else if (score < 30) {
+      return '#FF0000';
+    } else {
+      return "";
+    }
+  }
+  public getScore(analyst) {
+    console.log("getscore analyst:", analyst);
+    return analyst[0]['EFFICIENCY_SCORE'];
   }
 }

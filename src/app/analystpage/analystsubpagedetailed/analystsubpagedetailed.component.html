@@ -45,6 +45,20 @@
     </div>
   </div>
   <div class="graph-one">
+    <ngx-charts-bar-horizontal-stacked *ngIf = "canShow"
+                                       [view] = "view"
+                                       [results] = "finalData"
+                                       [legend] = "showLegend"
+                                       [gradient]="gradient"
+                                       [xAxis]="showXAxis"
+                                       [yAxis]="showYAxis"
+                                       [legend]="showLegend"
+
+                                       [xAxisLabel]="xAxisLabel"
+                                       [yAxisLabel]="yAxisLabel"
+                                       (select)="onSelect($event)">
+    </ngx-charts-bar-horizontal-stacked>
+
     <h2>Graph1</h2><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
   <div class="graph-two">
