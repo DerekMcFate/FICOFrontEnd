@@ -78,7 +78,7 @@ export class DataService {
     return newArray;
   }
 
-  public getFastestAnalysts(analystArr){
+  public getFastestAnalysts(analystArr) {
     function Comparator(a, b) {
       if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
       if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return 1;
@@ -96,12 +96,26 @@ export class DataService {
     var slowestAnalysts = analystArr.sort(Comparator).slice(0,3);
     return slowestAnalysts;
   }
-
-  public getCasesPerDay(analyst){
+  public getAnalystUserID(analyst){
+    return analyst[0]['USER_ID'];
+  }
+  public getAnalystCasesPerDay(analyst){
     return analyst[0]['CASES_PER_DAY'];
   }
-  public getScoreColor(analyst){
-    var score = this.getScore(analyst);
+  public getAnalystCaseLevel(analyst){
+    return analyst[0]['CASE_LEVEL_'];
+  }
+  public getAnalystCaseType(analyst){
+    return analyst[0]['CASE_TYPE_'];
+  }
+  public getAnalystQueue(analyst){
+    return analyst[0]['QUEUE_NAME'];
+  }
+  public getAnalystCasesCount(analyst){
+    return analyst.length;
+  }
+  public getAnalystScoreColor(analyst){
+    var score = this.getAnalystScore(analyst);
     if (score > 70){
       return '#00FF00';
     } else if (score < 30) {
@@ -110,7 +124,7 @@ export class DataService {
       return "";
     }
   }
-  public getScore(analyst) {
+  public getAnalystScore(analyst) {
     console.log("getscore analyst:", analyst);
     return analyst[0]['EFFICIENCY_SCORE'];
   }

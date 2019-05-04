@@ -1,10 +1,10 @@
 <mdb-card>
   <mdb-card-title>Fastest Analysts</mdb-card-title>
   <mdb-card-body align="center" *ngFor="let a of data.getFastestAnalysts(allData$)">
-    {{a[0].USER_ID}}<br>
+    {{data.getAnalystUserID(a)}}<br>
     <div class="analyst-sm-graph">
-      Queue: {{a[0].QUEUE_NAME}}<br>
-      {{a[0].CASES_PER_DAY}} cases/day<br>
+      Queue: {{data.getAnalystQueue(a)}}<br>
+      {{data.getAnalystCasesPerDay(a)}} cases/day<br>
     </div>
     <a [routerLink]="['./detailed']">Full View</a>
   </mdb-card-body>

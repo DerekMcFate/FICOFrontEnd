@@ -12,6 +12,8 @@ export class AnalysttableComponent implements OnInit {
   public headElements = ["Score", "Name, ID#", "Average cases/day", "Assigned Queue",
     "Case Level Expertise", "Case Type Expertise", "Cases Assigned"];
   public allData$: any ;
+  private analystDone;
+  private queuesDone;
   constructor(private data: DataService) {
     console.log("Constructor")
     this.data.getAllData().subscribe(

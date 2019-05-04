@@ -14,15 +14,15 @@
       </thead>
       <tbody>
       <tr *ngFor="let el of allData$; let j = index">
-        <th scope="row" [ngStyle]="{'color': data.getScoreColor(el)}">{{data.getScore(el)}}</th>
+        <th scope="row" [ngStyle]="{'color': data.getAnalystScoreColor(el)}">{{data.getAnalystScore(el)}}</th>
         <td>
-          <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{el[0].USER_ID}}</button>
+          <button [routerLink]="['./detailed']" mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">{{data.getAnalystUserID(el)}}</button>
         </td>
-        <td>{{data.getCasesPerDay(el)}}</td>
-        <td>{{el[0].QUEUE_NAME}}</td>
-        <td>{{el[0].CASE_LEVEL_}}</td>
-        <td>{{el[0].CASE_TYPE_}}</td>
-        <td>{{el.length}}</td>
+        <td>{{data.getAnalystCasesPerDay(el)}}</td>
+        <td>{{data.getAnalystQueue(el)}}</td>
+        <td>{{data.getAnalystCaseLevel(el)}}</td>
+        <td>{{data.getAnalystCaseType(el)}}</td>
+        <td>{{data.getAnalystCasesCount(el)}}</td>
       </tr>
       </tbody>
     </table>
