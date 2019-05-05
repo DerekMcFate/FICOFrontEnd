@@ -5,41 +5,54 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+  public analystData$: any ;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log("Constructor")
+    this.getAllData().subscribe(
+      (data) => {
+        this.analystData$ = this.groupBy(data, "USER_ID");
+        console.log(this.analystData$);
+      },
+    );
 
+  }
+  //Returns Analyst data
   getAnalysts() {
     return this.http.get('assets/analystData.json');
   }
-
+  getAllData() {
+    return this.http.get('assets/mergedData.json');
+  }
+  //Returns Case data
   getCases() {
     return this.http.get('assets/casesData.json');
   }
-
+  //Returns Model data
   getModels() {
     return this.http.get('assets/fprData.json');
   }
-  
+  //Returns Queue data
   getQueues() {
     return this.http.get('assets/queueData.json');
   }
 
-  groupObjects(array, element) {
-    //This function is designed to organize elements in an array based on one of it's common keys.
-    var i = 0, val, index, values = [], result = [];
-    for (; i < array.length; i++) {
-      val = array[i][element];
-      index = values.indexOf(val);
-      if(index > -1)
-        result[index].push(array[i]);
-      else {
-        values.push(val);
-        result.push([array[i]]);
-      }
-    }
-    console.log("Grouped Objects!\n");
-    console.log(result);
-    return result
+
+  groupBy(array, key) {
+    //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
+    //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
+    console.log(array);
+    var group = array.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+    //Prints the array to the console for viewing the data in browser
+
+    //console.log("groupBy Object");
+    //console.log(Object.values(group));
+    console.log(group);
+    return Object.values(group);
+
   }
 
   mergeData(array1, array2, key) {
@@ -73,5 +86,56 @@ export class DataService {
     console.log("Merged Data!\n");
     console.log(newArray);
     return newArray;
+  }
+
+  public getFastestAnalysts(analystArr) {
+    function Comparator(a, b) {
+      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
+      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return 1;
+      return 0;
+    }
+    var fastestAnalysts = analystArr.sort(Comparator).slice(0,3);
+    return fastestAnalysts;
+  }
+  public getSlowestAnalysts(analystArr){
+    function Comparator(a, b) {
+      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return -1;
+      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return 1;
+      return 0;
+    }
+    var slowestAnalysts = analystArr.sort(Comparator).slice(0,3);
+    return slowestAnalysts;
+  }
+  public getAnalystUserID(analyst){
+    return analyst[0]['USER_ID'];
+  }
+  public getAnalystCasesPerDay(analyst){
+    return analyst[0]['CASES_PER_DAY'];
+  }
+  public getAnalystCaseLevel(analyst){
+    return analyst[0]['CASE_LEVEL_'];
+  }
+  public getAnalystCaseType(analyst){
+    return analyst[0]['CASE_TYPE_'];
+  }
+  public getAnalystQueue(analyst){
+    return analyst[0]['QUEUE_NAME'];
+  }
+  public getAnalystCasesCount(analyst){
+    return analyst.length;
+  }
+  public getAnalystScoreColor(analyst){
+    var score = this.getAnalystScore(analyst);
+    if (score > 70){
+      return '#00FF00';
+    } else if (score < 30) {
+      return '#FF0000';
+    } else {
+      return "";
+    }
+  }
+  public getAnalystScore(analyst) {
+    console.log("getscore analyst:", analyst);
+    return analyst[0]['EFFICIENCY_SCORE'];
   }
 }

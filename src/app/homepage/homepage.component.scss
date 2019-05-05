@@ -1,10 +1,13 @@
-
+#performanceRow{
+  background-color: white;
+}
 #home-today-cases-title{
   color: black;
   justify-self: center;
 }
 #home-today-cases{
   place-content: center center;
+  background-color: white;
 }
 #home-overview-card-container{
   justify-content: center;
@@ -12,5 +15,11 @@
 
 #home-system-performance-row{
   align-items: center;
+}
+#casesRow{
+  background-color: white;
+}
+#legend-labels{
+  color: black !important;
 }
 

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -25,6 +24,11 @@ import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.com
 import { ModeloverviewComponent } from './modelpage/modeloverview/modeloverview.component';
 import { CasedetailsComponent } from './modelpage/casedetails/casedetails.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
+
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { CasesChartComponent } from './cases-chart/cases-chart.component';
+
 
 
 @NgModule({
@@ -48,12 +52,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ModeloverviewComponent,
     CasedetailsComponent,
     SidebarComponent,
+    PerformanceGraphComponent,
+    CasesChartComponent,
+    //NgxChartsModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
