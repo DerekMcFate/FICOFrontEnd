@@ -1,0 +1,31 @@
+  <ngx-charts-line-chart
+    *ngIf = "canShow"
+    [view]="view"
+    [legend] = "legendOptions"
+    [timeline] = "timeline"
+    [results] = "finalData"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [xAxisLabel]="xAxisLabel"
+    [activeEntries]="activeEntries"
+    [animations]="animations"
+    (legendLabelClick)="onClick($event)"
+    (legendLabelActivate)="onActivate($event)"
+    (legendLabelDeactivate)="onDeactivate($event)">
+  </ngx-charts-line-chart>
+  <!--
+  <ngx-charts-bar-horizontal-stacked *ngIf = "canShow"
+                                     [view] = "view"
+                                     [results] = "finalData"
+                                     [legend] = "showLegend"
+                                     [gradient]="gradient"
+                                     [xAxis]="showXAxis"
+                                     [yAxis]="showYAxis"
+                                     [legend]="showLegend"
+                                     [xAxisLabel]="xAxisLabel"
+                                     [yAxisLabel]="yAxisLabel"
+                                     (select)="onSelect($event)">
+  </ngx-charts-bar-horizontal-stacked>
+-->
