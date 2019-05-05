@@ -124,6 +124,14 @@ export class DataService {
   public getAnalystCasesCount(analyst){
     return analyst.length;
   }
+  public getAnalyst(userID) {
+    for (var i = 0; i < this.analystData$.length; i++) {
+      if (this.getAnalystUserID(this.analystData$[i]) === userID) {
+        return this.analystData$[i];
+      }
+    }
+  }
+
   public getAnalystScoreColor(analyst){
     var score = this.getAnalystScore(analyst);
     if (score > 70){
@@ -135,7 +143,6 @@ export class DataService {
     }
   }
   public getAnalystScore(analyst) {
-    console.log("getscore analyst:", analyst);
     return analyst[0]['EFFICIENCY_SCORE'];
   }
 }

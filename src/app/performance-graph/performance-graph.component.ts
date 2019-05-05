@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 import{NgxChartsModule} from '@swimlane/ngx-charts';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 @Component({
   selector: 'app-performance-graph',
   templateUrl: './performance-graph.component.html',
@@ -131,7 +134,7 @@ export class PerformanceGraphComponent implements OnInit {
     this.allData.push(OpenEntry);
     this.allData.push(ClosedEntry);
     this.allData.push(AllEntry);
-    //console.log(this.allData);
+    console.log("line format:", this.allData);
     this.canShow = true;
   }
 

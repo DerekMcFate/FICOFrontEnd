@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AnalystpageComponent,
     children: [
       {path: '', component: AnalystsubpagelistComponent},
-      {path: 'detailed', component: AnalystsubpagedetailedComponent},
+      {path: ':id', component: AnalystsubpagedetailedComponent},
     ]
   },
   {

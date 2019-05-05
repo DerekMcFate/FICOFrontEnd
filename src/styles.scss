@@ -23,6 +23,7 @@ border: solid black 6px;
   background-color: gray;
   border-width: 2px;
   border: solid;
+  border-radius: 8px;
   color:black;
   border-color: black;
 }
@@ -154,3 +155,11 @@ mdb-card-title{
   color: black !important;
 }
 
+.analyst-row {
+  background-color: #eeeeee;
+  border: #413e3e solid 2px;
+  border-radius: 4px;
+  margin: 4px;
+  padding-bottom:8px !important;
+  padding-top:8px !important;
+}
