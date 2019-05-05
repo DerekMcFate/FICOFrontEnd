@@ -1,9 +1,15 @@
-import {NgxChartsModule, BarHorizontalStackedComponent} from '@swimlane/ngx-charts';
-import { Component, OnInit, AfterContentInit, Input, Output, EventEmitter, ContentChild, TemplateRef, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-import {DataService} from '../data.service';
-import {ViewDimensions, ColorHelper, calculateViewDimensions } from '@swimlane/ngx-charts';
-import {area, line, curveLinear} from 'd3-shape';
+import { AfterContentInit, ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {BarHorizontalStackedComponent, NgxChartsModule} from '@swimlane/ngx-charts';
+import {PieSeriesComponent} from "@swimlane/ngx-charts";
+import {PieChartComponent} from "@swimlane/ngx-charts";
+import {calculateViewDimensions, ColorHelper, ViewDimensions } from '@swimlane/ngx-charts';
 import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
+import {area, curveLinear, line} from 'd3-shape';
+import {DataService} from '../data.service';
+
+
 import {
   trigger,
   transition,
@@ -15,6 +21,7 @@ import {
   templateUrl: './cases-chart.component.html',
   styleUrls: ['./cases-chart.component.scss']
 })
+
 export class CasesChartComponent implements OnInit {
   
 
@@ -39,7 +46,7 @@ export class CasesChartComponent implements OnInit {
   finalCases: any[];
 
   //shared chart stuff
-  view: any[] = [700,150];
+  view: any[] = [700, 150];
   showXAxis = true;
   showYAxis = true;
   gradient = true;
@@ -87,6 +94,7 @@ export class CasesChartComponent implements OnInit {
       }
 
     });
+    console.log("STATUS: ", this.statusCount);
     // case level
     let finalLevel = {
       name: "Level",
@@ -119,6 +127,9 @@ export class CasesChartComponent implements OnInit {
     this.finalCases.push(finalLevel);
     this.showCaseLevel = true;
 
+    console.log("GENERAL GRAPH");
+    this.finalData=this.finalData[0]['series'];
+    this.finalCases=this.finalCases[0]['series'];
     console.log(this.finalData);
     console.log(this.finalCases);
   }

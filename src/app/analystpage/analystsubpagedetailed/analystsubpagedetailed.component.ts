@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewDimensions, ColorHelper, calculateViewDimensions } from '@swimlane/ngx-charts';
+import {area, line, curveLinear} from 'd3-shape';
+import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
+import {
+  trigger,
+  transition,
+  style,
+  animate
+} from '@angular/animations';
+
 
 @Component({
   selector: 'app-analystsubpagedetailed',

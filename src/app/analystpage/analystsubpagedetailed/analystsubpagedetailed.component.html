@@ -23,6 +23,7 @@
 </div>
   <div class="container-fluid">
     <div class="row">
+<!--
       <div class="col-6">
         Show:
         <select class="browser-default custom-select">
@@ -41,25 +42,14 @@
         </select>
 
       </div>
-
+-->
     </div>
   </div>
-  <div class="graph-one">
-    <ngx-charts-bar-horizontal-stacked *ngIf = "canShow"
-                                       [view] = "view"
-                                       [results] = "finalData"
-                                       [legend] = "showLegend"
-                                       [gradient]="gradient"
-                                       [xAxis]="showXAxis"
-                                       [yAxis]="showYAxis"
-                                       [legend]="showLegend"
-
-                                       [xAxisLabel]="xAxisLabel"
-                                       [yAxisLabel]="yAxisLabel"
-                                       (select)="onSelect($event)">
-    </ngx-charts-bar-horizontal-stacked>
-
-    <h2>Graph1</h2><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="graph-one graph-elem">
+    <div class="row">
+    <h2 style="justify-self: center">Cases</h2>
+    </div>
+    <app-analyst-graph-cases></app-analyst-graph-cases>
   </div>
   <div class="graph-two">
     <h2>Graph2</h2><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
