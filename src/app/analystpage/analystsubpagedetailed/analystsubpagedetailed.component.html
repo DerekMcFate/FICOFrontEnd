@@ -1,6 +1,7 @@
   <div class="detailed-page z-depth-2">
 <div class="d-flex">
   <h1 class="flex-grow-1"> Analyst Performance</h1>
+  <!--
   <div class="dropdown detailedMenu" mdbDropdown>
 
 
@@ -19,30 +20,18 @@
   <a mdbBtn [routerLink]="['..']" class="close-button" floating="true">
     <mdb-icon fas icon="times-circle" size="2x"></mdb-icon>
   </a>
-
+-->
 </div>
   <div class="container-fluid">
+    <div class="row" style="justify-content: left">
+      <h4>
+      Analyst Name: {{this.analystID}}<br>
+      Queue: {{this.data.getAnalystQueue(this.analyst)}}<br>
+      Score: {{data.getAnalystScore(this.analyst)}}  <br>
+        {{data.getAnalystCasesPerDay(this.analyst)}} avg cases/day</h4>
+    </div>
+
     <div class="row">
-<!--
-      <div class="col-6">
-        Show:
-        <select class="browser-default custom-select">
-          <option selected value="1">Today</option>
-          <option value="2">Yesterday</option>
-          <option value="3">Last Week</option>
-        </select>
-
-      </div>
-      <div class="col-6">
-        Compare to:
-        <select class="browser-default custom-select">
-          <option value="1">Today</option>
-          <option selected value="2">Yesterday</option>
-          <option value="3">Last Week</option>
-        </select>
-
-      </div>
--->
     </div>
   </div>
   <div class="graph-one graph-elem">
@@ -50,8 +39,5 @@
     <h2 style="justify-self: center">Cases</h2>
     </div>
     <app-analyst-graph-cases></app-analyst-graph-cases>
-  </div>
-  <div class="graph-two">
-    <h2>Graph2</h2><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 </div>

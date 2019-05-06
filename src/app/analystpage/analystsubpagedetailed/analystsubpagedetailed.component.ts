@@ -8,6 +8,8 @@ import {
   style,
   animate
 } from '@angular/animations';
+import {ActivatedRoute} from '@angular/router';
+import {DataService} from '../../data.service';
 
 
 @Component({
@@ -21,7 +23,8 @@ export class AnalystsubpagedetailedComponent implements OnInit {
   chartData: any[];
   statusCount: any[];
   finalData: any[];
-
+  analystID: string;
+  analyst: any[];
   showXAxis = true;
   showYAxis = true;
   gradient = false;
@@ -35,7 +38,14 @@ export class AnalystsubpagedetailedComponent implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor() { }
+  constructor(private data: DataService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.analystID = params['id'];
+      this.analyst = data.getAnalyst(this.analystID);
+      console.log("ANALYST:", this.analyst);
+    });
+  }
 
   optionsSelect: Array<any>;
   ngOnInit() {

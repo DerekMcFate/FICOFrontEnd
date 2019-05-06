@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   public analystData$: any ;
+  public allData$: any;
 
   constructor(private http: HttpClient) {
     console.log("Constructor")
     this.getAllData().subscribe(
       (data) => {
         this.analystData$ = this.groupBy(data, "USER_ID");
+        this.allData$ = this.groupBy(data, "CASE_ID");
         console.log(this.analystData$);
       },
     );
@@ -88,6 +90,49 @@ export class DataService {
     return newArray;
   }
 
+  public getOldestOpenCases(allCasesArr) {
+    console.log("ALLCASEARR:", allCasesArr);
+    function Comparator(a, b) {
+      if (a[0]['CASE_CREATED_DTTM'] > b[0]['CASE_CREATED_DTTM']) return -1;
+      if (a[0]['CASE_CREATED_DTTM'] < b[0]['CASE_CREATED_DTTM']) return 1;
+      return 0;
+    }
+
+    var oldestCases = allCasesArr.sort(Comparator).slice(0,3);
+    console.log("OLD", oldestCases);
+    return oldestCases;
+  }
+  public getTimeActive(testCase) {
+      let monthMap = {
+        "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5,
+        "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9, "OCT": 10,
+        "NOV": 11, "DEC": 12,
+        }
+      var caseDate = testCase[0]['CASE_CREATED_DTTM'];
+      var year = "20" + caseDate.slice(7, 9);
+      var month = monthMap[caseDate.slice(3, 6)];
+      var day = caseDate.slice(0,2);
+      var hours = caseDate.slice(10, 12);
+      var minutes =  caseDate.slice(13, 15);
+      var seconds = caseDate.slice(17,19);
+      var ms = 0;
+      console.log(year, month);
+      var oldDate = new Date(+year, month, day, hours, minutes, seconds, ms);
+      var currentDate = new Date();
+      console.log("Old Date:", oldDate.toLocaleString());
+      console.log("Current Date:", currentDate.toLocaleString());
+      var diff = Math.abs(oldDate.getTime() - currentDate.getTime());
+      var daysSince = Math.ceil(diff / (1000 * 3600 * 24));
+      var color = "black";
+      if (daysSince > 14) {
+        color = "red";
+      }
+      let retVal = {
+        days: daysSince,
+        color: color,
+      }
+      return retVal;
+  }
   public getFastestAnalysts(analystArr) {
     function Comparator(a, b) {
       if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
