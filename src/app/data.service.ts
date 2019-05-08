@@ -1,17 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  public analystData$: any ;
+  public allData$: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log("Constructor")
+    this.getAllData().subscribe(
+      (data) => {
+        this.analystData$ = this.groupBy(data, "USER_ID");
+        this.allData$ = this.groupBy(data, "CASE_ID");
+        console.log(this.analystData$);
+      },
+    );
+
+  }
   //Returns Analyst data
   getAnalysts() {
     return this.http.get('assets/analystData.json');
+  }
+  getAllData() {
+    return this.http.get('assets/mergedData.json');
   }
   //Returns Case data
   getCases() {
@@ -25,10 +38,13 @@ export class DataService {
   getQueues() {
     return this.http.get('assets/queueData.json');
   }
+
+
   groupBy(array, key) {
     //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
     //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
     var helper = {};
+    console.log(array);
     var group = array.reduce(function(rv, x) {
       var combinedKey = Object.values(key).join("-");
       (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -36,14 +52,11 @@ export class DataService {
     }, {});
     //Prints the array to the console for viewing the data in browser
 
-    console.log("groupBy Object");
-    console.log(Object.values(group));
+    //console.log("groupBy Object");
+    //console.log(Object.values(group));
+    console.log(group);
     return Object.values(group);
 
-  }
-
-  toJson() {
-    return this.http.get('assets/fprData.json').pipe(map(data => {}))
   }
 
   mergeData(array1, array2, key) {
@@ -119,4 +132,104 @@ export class DataService {
   //   return newArray;
   }
 
+  public getOldestOpenCases(allCasesArr) {
+    console.log("ALLCASEARR:", allCasesArr);
+    function Comparator(a, b) {
+      if (a[0]['CASE_CREATED_DTTM'] > b[0]['CASE_CREATED_DTTM']) return -1;
+      if (a[0]['CASE_CREATED_DTTM'] < b[0]['CASE_CREATED_DTTM']) return 1;
+      return 0;
+    }
+
+    var oldestCases = allCasesArr.sort(Comparator).slice(0,3);
+    console.log("OLD", oldestCases);
+    return oldestCases;
+  }
+  public getTimeActive(testCase) {
+      let monthMap = {
+        "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5,
+        "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9, "OCT": 10,
+        "NOV": 11, "DEC": 12,
+        }
+      var caseDate = testCase[0]['CASE_CREATED_DTTM'];
+      var year = "20" + caseDate.slice(7, 9);
+      var month = monthMap[caseDate.slice(3, 6)];
+      var day = caseDate.slice(0,2);
+      var hours = caseDate.slice(10, 12);
+      var minutes =  caseDate.slice(13, 15);
+      var seconds = caseDate.slice(17,19);
+      var ms = 0;
+      console.log(year, month);
+      var oldDate = new Date(+year, month, day, hours, minutes, seconds, ms);
+      var currentDate = new Date();
+      console.log("Old Date:", oldDate.toLocaleString());
+      console.log("Current Date:", currentDate.toLocaleString());
+      var diff = Math.abs(oldDate.getTime() - currentDate.getTime());
+      var daysSince = Math.ceil(diff / (1000 * 3600 * 24));
+      var color = "black";
+      if (daysSince > 14) {
+        color = "red";
+      }
+      let retVal = {
+        days: daysSince,
+        color: color,
+      }
+      return retVal;
+  }
+  public getFastestAnalysts(analystArr) {
+    function Comparator(a, b) {
+      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
+      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return 1;
+      return 0;
+    }
+    var fastestAnalysts = analystArr.sort(Comparator).slice(0,3);
+    return fastestAnalysts;
+  }
+  public getSlowestAnalysts(analystArr){
+    function Comparator(a, b) {
+      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return -1;
+      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return 1;
+      return 0;
+    }
+    var slowestAnalysts = analystArr.sort(Comparator).slice(0,3);
+    return slowestAnalysts;
+  }
+  public getAnalystUserID(analyst){
+    return analyst[0]['USER_ID'];
+  }
+  public getAnalystCasesPerDay(analyst){
+    return analyst[0]['CASES_PER_DAY'];
+  }
+  public getAnalystCaseLevel(analyst){
+    return analyst[0]['CASE_LEVEL_'];
+  }
+  public getAnalystCaseType(analyst){
+    return analyst[0]['CASE_TYPE_'];
+  }
+  public getAnalystQueue(analyst){
+    return analyst[0]['QUEUE_NAME'];
+  }
+  public getAnalystCasesCount(analyst){
+    return analyst.length;
+  }
+  public getAnalyst(userID) {
+    for (var i = 0; i < this.analystData$.length; i++) {
+      if (this.getAnalystUserID(this.analystData$[i]) === userID) {
+        return this.analystData$[i];
+      }
+    }
+  }
+
+  public getAnalystScoreColor(analyst){
+    var score = this.getAnalystScore(analyst);
+    if (score > 70){
+      return '#00FF00';
+    } else if (score < 30) {
+      return '#FF0000';
+    } else {
+      return "";
+    }
+  }
+  public getAnalystScore(analyst) {
+    return analyst[0]['EFFICIENCY_SCORE'];
+  }
 }

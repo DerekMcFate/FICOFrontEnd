@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../../data.service";
 
 @Component({
   selector: 'app-analystsfastest',
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analystsfastest.component.scss']
 })
 export class AnalystsfastestComponent implements OnInit {
-  fastAnalysts: any = [1,2,3];
-  constructor() { }
-
+  constructor(private data: DataService) {
+  }
   ngOnInit() {
 
   }

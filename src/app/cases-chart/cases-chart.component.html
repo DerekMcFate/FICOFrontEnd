@@ -1,24 +1,29 @@
-<p> THis works</p>
-<div id="home-today-cases" class="row fico-row">
+
+<div id="home-today-cases" class="row graph-elem">
   <div class="column-lg-12">
     <div class="row">
       <h1 id="home-today-cases-title">Today's Cases</h1>
     </div>
-    <div class="row" id="casesRow">
-      <ngx-charts-bar-horizontal-stacked *ngIf = "canShow"
-        [view] = "view" 
-        [results] = "finalData"
-        [legend] = "showLegend"
-        [gradient]="gradient"
-        [xAxis]="showXAxis"
-        [yAxis]="showYAxis"
-        [legend]="showLegend"
-        [xAxisLabel]="xAxisLabel"
-        [yAxisLabel]="yAxisLabel"
-        (select)="onSelect($event)">
-       </ngx-charts-bar-horizontal-stacked>
-    </div>
-    <div class="row" id="caseLevelRow">
+    <div class="row">
+      <div class="col-6">
+        <ngx-charts-advanced-pie-chart *ngIf = "canShow"
+          [view] = "view"
+          [scheme]="colorScheme"
+          [results] = "finalData"
+          [gradient]="gradient"
+          (select)="onSelect($event)">
+         </ngx-charts-advanced-pie-chart>
+      </div>
+      <div class="col-6">
+        <ngx-charts-advanced-pie-chart *ngIf = "canShow"
+                                     [view] = "view"
+                                     [scheme]="colorScheme"
+                                     [results] = "finalCases"
+                                     [gradient]="gradient"
+                                     (select)="onSelect($event)">
+        </ngx-charts-advanced-pie-chart>
+
+      <!--
       <ngx-charts-bar-horizontal-stacked *ngIf = "showCaseLevel"
         [view] = "view" 
         [results] = "finalCases"
@@ -31,6 +36,9 @@
         [yAxisLabel]="yAxisLabel"
         (select)="onSelect($event)">
        </ngx-charts-bar-horizontal-stacked>
+    -->
+      </div>
     </div>
   </div>
+  <br>
 </div>

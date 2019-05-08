@@ -1,26 +1,11 @@
-
-<p class="fico-sidebar">
+<div class="fico-sidebar">
   Cases That Need Attention<br><br>
-  <b>M109</b><br>
-  <a routerlink="['./details']">
-    Case:<br>
-    Queue:<br>
-    Analyst:<br>
-    Time active:<br><br>
-  </a>
-  <b>M241</b><br>
-  <a routerlink="['./details']">
-    Case:<br>
-    Queue:<br>
-    Analyst:<br>
-    Time active:<br><br>
-  </a>
-  <b>M363</b><br>
-  <a routerlink="['./details']">
-    Case:<br>
-    Queue:<br>
-    Analyst:<br>
-    Time active:<br><br>
-  </a>
-  <br><br><br><br><br><br><br><br><br><br>
-</p>
+<div class="row attention-case" style="justify-content: left; margin-left: 4px" *ngFor="let el of this.data.getOldestOpenCases(this.data.allData$)">
+  <b>Case: {{el[0].CASE_ID}}<br>
+  Analyst: {{data.getAnalystUserID(el)}}<br>
+  Queue: {{data.getAnalystQueue(el)}}<br>
+  Time Active: {{data.getTimeActive(el).days}} days<br><br>
+  </b>
+</div>
+
+</div>

@@ -26,10 +26,11 @@ import { CasedetailsComponent } from './modelpage/casedetails/casedetails.compon
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { CasesChartComponent } from './cases-chart/cases-chart.component';
-
-
+import { AnalystGraphCasesComponent } from './analystpage/analyst-graph-cases/analyst-graph-cases.component';
+import { AnalystGraphLevelComponent } from './analystpage/analyst-graph-level/analyst-graph-level.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { CasesChartComponent } from './cases-chart/cases-chart.component';
     SidebarComponent,
     PerformanceGraphComponent,
     CasesChartComponent,
+    AnalystGraphCasesComponent,
+    AnalystGraphLevelComponent,
     //NgxChartsModule
   ],
   imports: [
