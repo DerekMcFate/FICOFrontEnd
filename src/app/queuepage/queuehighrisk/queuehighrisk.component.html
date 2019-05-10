@@ -1,0 +1,97 @@
+<div class="fico-row">
+  <mdb-card>
+    <mdb-card-title>
+      <h3>High Risk Customer Queue</h3>
+    </mdb-card-title>
+    <mdb-card-body>
+      <mdb-card-text class="fico-card-text">
+        <div class="row fico-row">
+          <div class="col-12 fico-col">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <script>
+                    // Material Select Initialization
+                    $(document).ready(function () {
+                      $('.mdb-select').material_select();
+                    });
+                  </script>
+                  <span class=" info-color-light p-2">Show: </span>
+                  <select class="mdb-select colorful-select dropdown-info fico-selector">
+                    <option value="" disabled>Choose time period</option>
+                    <option value="1">Today</option>
+                    <option value="2">Day</option>
+                    <option value="3">Week</option>
+                    <option value="3">Month</option>
+                    <option value="3">Quarter</option>
+                    <option value="3">Year</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <script> $('.datepicker').pickadate();</script>
+                  <!--Date pickers-->
+                  <span class="info-color-light p-2">Filter By: </span>
+                  <select class="mdb-select colorful-select dropdown-info fico-selector">
+                    <option value="" disabled>All Case Levels</option>
+                    <option value="1">Service</option>
+                    <option value="2">Account</option>
+                    <option value="3">Customer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row pt-3">
+                <div class = "col-md">
+                  <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                    <mdb-card-title>Slowest Analysts</mdb-card-title>
+                    <mdb-card-body>
+                      <table  mdbTable small="true" responsive="true">
+                        <thead>
+                        <tr>
+                          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr mdbTableCol *ngFor="let el of elements">
+                          <th scope="row">{{el.id}}</th>
+                          <td>{{el.first}}</td>
+                          <td>{{el.last}}</td>
+                          <td>{{el.handle}}</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </mdb-card-body>
+                  </mdb-card>
+                </div>
+                <div class = "col-md">
+                  <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
+                    <mdb-card-title>Quickest Analysts</mdb-card-title>
+                    <mdb-card-body>
+                      <table  mdbTable small="true" responsive="true">
+                        <thead>
+                        <tr>
+                          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr mdbTableCol *ngFor="let el of elements">
+                          <th scope="row">{{el.id}}</th>
+                          <td>{{el.first}}</td>
+                          <td>{{el.last}}</td>
+                          <td>{{el.handle}}</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </mdb-card-body>
+                  </mdb-card>
+                </div>
+              </div>
+              <div class="row">
+                <button mdbBtn class="fico-button-l" type="button" mdbWavesEffect>View All High Risk Analysts</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
+</div>
