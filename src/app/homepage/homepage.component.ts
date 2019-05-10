@@ -1,17 +1,17 @@
-import { Component, OnInit, AfterContentInit, Input, Output, EventEmitter, ContentChild, TemplateRef, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-import { RouterLink} from '@angular/router';
-import {DataService} from '../data.service';
-import {ViewDimensions, ColorHelper, calculateViewDimensions } from '@swimlane/ngx-charts';
-import {area, line, curveLinear} from 'd3-shape';
-import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
 import {
-  trigger,
-  transition,
+  animate,
   style,
-  animate
+  transition,
+  trigger
 } from '@angular/animations';
+import { AfterContentInit, ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterLink} from '@angular/router';
+import {calculateViewDimensions, ColorHelper, ViewDimensions } from '@swimlane/ngx-charts';
+import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
+import {area, curveLinear, line} from 'd3-shape';
 import {CasesChartComponent} from '../cases-chart/cases-chart.component';
-
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-homepage',

@@ -9,6 +9,8 @@ import { DataService } from '../data.service';
 export class QueuepageComponent implements OnInit {
 
   queues$: Object;
+  headElements: Object;
+  elements: Object;
   
   constructor(private data: DataService) {
   }

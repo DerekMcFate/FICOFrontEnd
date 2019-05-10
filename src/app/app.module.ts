@@ -24,12 +24,21 @@ import { ModelpageComponent } from './modelpage/modelpage.component';
 import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
+<<<<<<< HEAD
 import { QueuepageComponent } from './queuepage/queuepage.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { QueueperformanceComponent } from './queuepage/queueperformance/queueperformance.component';
 import { QueuequalitycontrolComponent } from './queuepage/queuequalitycontrol/queuequalitycontrol.component';
 import { QueuehighriskComponent } from './queuepage/queuehighrisk/queuehighrisk.component';
 import { QueuetoppriorityComponent } from './queuepage/queuetoppriority/queuetoppriority.component';
+=======
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { CasesChartComponent } from './cases-chart/cases-chart.component';
+import { AnalystGraphCasesComponent } from './analystpage/analyst-graph-cases/analyst-graph-cases.component';
+import { AnalystGraphLevelComponent } from './analystpage/analyst-graph-level/analyst-graph-level.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,10 +62,15 @@ import { QueuetoppriorityComponent } from './queuepage/queuetoppriority/queuetop
     SidebarComponent,
     PerformanceGraphComponent,
     CasesChartComponent,
+<<<<<<< HEAD
     QueueperformanceComponent,
     QueuequalitycontrolComponent,
     QueuehighriskComponent,
     QueuetoppriorityComponent,
+=======
+    AnalystGraphCasesComponent,
+    AnalystGraphLevelComponent,
+>>>>>>> e4a72efa9666ecb170b2e1f95601d9e18d128fe0
     //NgxChartsModule
   ],
   imports: [
@@ -65,7 +79,8 @@ import { QueuetoppriorityComponent } from './queuepage/queuetoppriority/queuetop
     NgbModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
