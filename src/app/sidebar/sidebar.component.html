@@ -1,6 +1,6 @@
 <div class="fico-sidebar">
   Cases That Need Attention<br><br>
-<div class="row attention-case" style="justify-content: left; margin-left: 4px" *ngFor="let el of data.getOldestOpenCases(data.allData$)">
+<div class="row attention-case" style="justify-content: left; margin-left: 4px" *ngFor="let el of this.data.getOldestOpenCases(this.data.allData$)">
   <b>Case: {{el[0].CASE_ID}}<br>
   Analyst: {{data.getAnalystUserID(el)}}<br>
   Queue: {{data.getAnalystQueue(el)}}<br>
