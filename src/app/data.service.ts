@@ -14,7 +14,7 @@ export class DataService {
       (data) => {
         this.analystData$ = this.groupBy(data, "USER_ID");
         this.allData$ = this.groupBy(data, "CASE_ID");
-        console.log(this.analystData$);
+        //console.log(this.analystData$);
       },
     );
 
@@ -34,7 +34,7 @@ export class DataService {
   getModels() {
     return this.http.get('assets/fprData.json');
   }
-  //Returns Queue data
+  //Returns Queue data Obeservable
   getQueues() {
     return this.http.get('assets/queueData.json');
   }
@@ -43,8 +43,10 @@ export class DataService {
   groupBy(array, key) {
     //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
     //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
-    console.log(array);
+    var helper = {};
+    //console.log(array);
     var group = array.reduce(function(rv, x) {
+      var combinedKey = Object.values(key).join("-");
       (rv[x[key]] = rv[x[key]] || []).push(x);
       return rv;
     }, {});
@@ -58,40 +60,80 @@ export class DataService {
   }
 
   mergeData(array1, array2, key) {
+    //***Deprecated***//
     //This function is designed to merge two data arrays based on a key shared between them.
-    var keyMap = {};
-    for(var i = 0; i < 2; i++) {
-      for(var j = 0; j < array1.length; j++) {
-        var id = array1[j][key];
-        if(!keyMap[id]) {
-          keyMap[id] = {};
-        }
-        for(var element in array1[j]) {
-          keyMap[id][element] = array1[j][element];
-        }
-      }
-      for(var j = 0; j < array2.length; j++) {
-        var id = array2[j][key];
-        if(!keyMap[id]) {
-          keyMap[id] = {};
-        }
-        for(var element in array2[j]) {
-          keyMap[id][element] = array2[j][element];
-        }
-      }
-    }
+    //console.log("Merged Data: ", res);
+    // console.log("MergeData called");
+    // console.log("firstArray: ", array1);
+    // console.log("secondArray: ", array2);
+    // var newArray = [];
+    // var array11 = Object.values(array1);
+    // var array22 = Object.values(array2);
+    // //Get keys
+    // var masterKey = Object.values(key).join("-");
+    // var keyArr = [];
+    // console.log(key[1]);
+    // for(var i = 0; i < array1.length; i++) {
+    //   //If the key doesn't exist, add it to the key array
+    //   for(var j = 0; j < array1[i].length; j++) {
+    //     if(!keyArr.includes((array1[i][j][key[0]] + "-" + array1[i][j][key[1]]))) {
+    //       //console.log((array1[i][j][key[0]] + "-" + array1[i][j][key[1]]));
+    //       keyArr.push((array1[i][j][key[0]] + "-" + array1[i][j][key[1]]));
+    //     } else {
+    //       console.log("Nothing");
+    //     }
+    //   }
+    // }
+    //Get array1 values
+    // for(var i = 0; i < array1.length; i++) {
+    //   for(var j = 0; j < array1[i].length; j++) {
+    //     for(var k = 0; k < keyArr.length; k++) {
+    //       if(keyArr[k] === (array1[i][j][key[0]] + "-" + array1[i][j][key[1]])) {
+    //         console.log("Hey", keyArr[k]);
+    //       } else {
+    //         console.log(array1[i][j]);
+    //       }
+    //     }
+    //   }
+    // }
+    //Get array2 values
 
-    var newArray = [];
-    for(var property in keyMap) {
-      newArray.push(keyMap[property]);
-    }
-    console.log("Merged Data!\n");
-    console.log(newArray);
-    return newArray;
+    //Return new array
+    //return newArray
+  //   console.log(key);
+  //   var keyMap = {};
+  //   for(var i = 0; i < 2; i++) {
+  //     for(var j = 0; j < array1.length; j++) {
+  //       var id = array1[j][key];
+  //       if(!keyMap[id]) {
+  //         keyMap[id] = {};
+  //       }
+  //       for(var element in array1[j]) {
+  //         keyMap[id][element] = array1[j][element];
+  //       }
+  //     }
+  //     for(var j = 0; j < array2.length; j++) {
+  //       var id = array2[j][key];
+  //       if(!keyMap[id]) {
+  //         keyMap[id] = {};
+  //       }
+  //       for(var element in array2[j]) {
+  //         keyMap[id][element] = array2[j][element];
+  //       }
+  //     }
+  //   }
+
+  //   var newArray = [];
+  //   for(var property in keyMap) {
+  //     newArray.push(keyMap[property]);
+  //   }
+  //   console.log("Merged Data!\n");
+  //   console.log(newArray);
+  //   return newArray;
   }
 
   public getOldestOpenCases(allCasesArr) {
-    console.log("ALLCASEARR:", allCasesArr);
+    //console.log("ALLCASEARR:", allCasesArr);
     function Comparator(a, b) {
       if (a[0]['CASE_CREATED_DTTM'] > b[0]['CASE_CREATED_DTTM']) return -1;
       if (a[0]['CASE_CREATED_DTTM'] < b[0]['CASE_CREATED_DTTM']) return 1;
@@ -99,7 +141,7 @@ export class DataService {
     }
 
     var oldestCases = allCasesArr.sort(Comparator).slice(0,3);
-    console.log("OLD", oldestCases);
+    //console.log("OLD", oldestCases);
     return oldestCases;
   }
   public getTimeActive(testCase) {
@@ -116,11 +158,11 @@ export class DataService {
       var minutes =  caseDate.slice(13, 15);
       var seconds = caseDate.slice(17,19);
       var ms = 0;
-      console.log(year, month);
+      //console.log(year, month);
       var oldDate = new Date(+year, month, day, hours, minutes, seconds, ms);
       var currentDate = new Date();
-      console.log("Old Date:", oldDate.toLocaleString());
-      console.log("Current Date:", currentDate.toLocaleString());
+      //console.log("Old Date:", oldDate.toLocaleString());
+      //console.log("Current Date:", currentDate.toLocaleString());
       var diff = Math.abs(oldDate.getTime() - currentDate.getTime());
       var daysSince = Math.ceil(diff / (1000 * 3600 * 24));
       var color = "black";
