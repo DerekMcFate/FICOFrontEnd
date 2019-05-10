@@ -9,7 +9,7 @@ import {DataService} from '../data.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private data: DataService) { }
+  constructor(public data: DataService) { }
 
   ngOnInit() {
    }
