@@ -7,7 +7,7 @@ import {DataService} from "../../data.service";
   styleUrls: ['./analystsslowest.component.scss']
 })
 export class AnalystsslowestComponent implements OnInit {
-  constructor(private data: DataService) {
+  constructor(public data: DataService) {
   }
   ngOnInit() {
   }

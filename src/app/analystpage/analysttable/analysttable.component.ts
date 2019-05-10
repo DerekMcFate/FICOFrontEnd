@@ -13,7 +13,7 @@ export class AnalysttableComponent implements OnInit {
     "Case Level Expertise", "Case Type Expertise", "Cases Assigned"];
   private analystDone;
   private queuesDone;
-  constructor(private data: DataService) {
+  constructor(public data: DataService) {
   }
 
   public ngOnInit() {
