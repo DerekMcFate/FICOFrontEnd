@@ -65,7 +65,8 @@ import { AnalystGraphLevelComponent } from './analystpage/analyst-graph-level/an
     NgbModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

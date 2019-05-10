@@ -14,7 +14,7 @@ export class DataService {
       (data) => {
         this.analystData$ = this.groupBy(data, "USER_ID");
         this.allData$ = this.groupBy(data, "CASE_ID");
-        console.log(this.analystData$);
+        //console.log(this.analystData$);
       },
     );
 
@@ -44,7 +44,7 @@ export class DataService {
     //Reorganizes the given array using the provided key. The key used needs to be a key between all objects in the json array.
     //For example when using queueData.json as the array, 'CLIENT_ID' or 'CASE_STATUS' can be used as the key.
     var helper = {};
-    console.log(array);
+    //console.log(array);
     var group = array.reduce(function(rv, x) {
       var combinedKey = Object.values(key).join("-");
       (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -133,7 +133,7 @@ export class DataService {
   }
 
   public getOldestOpenCases(allCasesArr) {
-    console.log("ALLCASEARR:", allCasesArr);
+    //console.log("ALLCASEARR:", allCasesArr);
     function Comparator(a, b) {
       if (a[0]['CASE_CREATED_DTTM'] > b[0]['CASE_CREATED_DTTM']) return -1;
       if (a[0]['CASE_CREATED_DTTM'] < b[0]['CASE_CREATED_DTTM']) return 1;
@@ -141,7 +141,7 @@ export class DataService {
     }
 
     var oldestCases = allCasesArr.sort(Comparator).slice(0,3);
-    console.log("OLD", oldestCases);
+    //console.log("OLD", oldestCases);
     return oldestCases;
   }
   public getTimeActive(testCase) {
@@ -158,11 +158,11 @@ export class DataService {
       var minutes =  caseDate.slice(13, 15);
       var seconds = caseDate.slice(17,19);
       var ms = 0;
-      console.log(year, month);
+      //console.log(year, month);
       var oldDate = new Date(+year, month, day, hours, minutes, seconds, ms);
       var currentDate = new Date();
-      console.log("Old Date:", oldDate.toLocaleString());
-      console.log("Current Date:", currentDate.toLocaleString());
+      //console.log("Old Date:", oldDate.toLocaleString());
+      //console.log("Current Date:", currentDate.toLocaleString());
       var diff = Math.abs(oldDate.getTime() - currentDate.getTime());
       var daysSince = Math.ceil(diff / (1000 * 3600 * 24));
       var color = "black";
