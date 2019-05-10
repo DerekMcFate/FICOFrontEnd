@@ -12,6 +12,6 @@ export class SidebarComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-  }
+   }
 
 }

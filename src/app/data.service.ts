@@ -133,7 +133,10 @@ export class DataService {
   }
 
   public getOldestOpenCases(allCasesArr) {
-    //console.log("ALLCASEARR:", allCasesArr);
+    if(allCasesArr == null){
+      return [];
+    }
+//    allCasesArr = this.allData$;
     function Comparator(a, b) {
       if (a[0]['CASE_CREATED_DTTM'] > b[0]['CASE_CREATED_DTTM']) return -1;
       if (a[0]['CASE_CREATED_DTTM'] < b[0]['CASE_CREATED_DTTM']) return 1;
@@ -176,6 +179,9 @@ export class DataService {
       return retVal;
   }
   public getFastestAnalysts(analystArr) {
+    if(analystArr == null){
+      return [];
+    }
     function Comparator(a, b) {
       if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
       if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return 1;
@@ -185,6 +191,9 @@ export class DataService {
     return fastestAnalysts;
   }
   public getSlowestAnalysts(analystArr){
+    if(analystArr == null){
+      return [];
+    }
     function Comparator(a, b) {
       if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return -1;
       if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return 1;
