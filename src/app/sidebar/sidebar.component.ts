@@ -8,7 +8,7 @@ import {DataService} from '../data.service';
 
 })
 export class SidebarComponent implements OnInit {
-
+  oldCases$: Object;
   constructor(private data: DataService) { }
 
   ngOnInit() {
