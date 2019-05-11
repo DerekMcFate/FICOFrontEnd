@@ -16,7 +16,7 @@ export class PerformanceGraphComponent implements OnInit {
   closedCases: any[];
   openCases: any[];
   totalCases: number;
-  
+  linear: any;
   // results array for graph
   allData: any[];
 
@@ -34,12 +34,13 @@ export class PerformanceGraphComponent implements OnInit {
   yAxisLabel = 'Number of Cases';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#003377', '#FF8888', '#00FF00',]
   };
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.linear = "ordinal";
     this.canShow = false;
     this.totalCases = 0;
     this.data.getQueues().subscribe((results) => {
@@ -134,6 +135,7 @@ export class PerformanceGraphComponent implements OnInit {
     this.allData.push(OpenEntry);
     this.allData.push(ClosedEntry);
     this.allData.push(AllEntry);
+    this.allData= this.allData.reverse();
     console.log("line format:", this.allData);
     this.canShow = true;
   }

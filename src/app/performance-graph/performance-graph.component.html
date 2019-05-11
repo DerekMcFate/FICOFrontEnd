@@ -1,8 +1,11 @@
 
-  <ngx-charts-line-chart id="stackedChart" *ngIf = "canShow"
+  <ngx-charts-area-chart id="stackedChart" *ngIf = "canShow"
 [view]="view"
 [legend] = "legendOptions"
 [timeline] = "timeline"
+[scheme]="colorScheme"
+[customColors]="colorScheme"
+[schemeType]="linear"
 [results] = "allData"
 [showXAxisLabel]="showXAxisLabel"
 [showYAxisLabel]="showYAxisLabel"
@@ -14,4 +17,4 @@
 (legendLabelClick)="onClick($event)"
 (legendLabelActivate)="onActivate($event)"
 (legendLabelDeactivate)="onDeactivate($event)">
-</ngx-charts-line-chart>
+</ngx-charts-area-chart>

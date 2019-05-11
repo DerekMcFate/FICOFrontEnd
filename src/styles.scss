@@ -23,8 +23,10 @@ border: solid black 6px;
 }
 
 .graph-elem {
-  background-color: gray;
-  border-width: 2px;
+  min-width: 800px;
+  padding:8px;
+  background-color: white;
+  border-width: 1px;
   border: solid;
   border-radius: 8px;
   color:black;
