@@ -1,13 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
+import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ActivecasesComponent } from './activecases/activecases.component';
+import { AnalystGraphCasesComponent } from './analystpage/analyst-graph-cases/analyst-graph-cases.component';
+import { AnalystGraphLevelComponent } from './analystpage/analyst-graph-level/analyst-graph-level.component';
 import { AnalystpageComponent } from './analystpage/analystpage.component';
 import { AnalystsfastestComponent } from './analystpage/analystsfastest/analystsfastest.component';
 import { AnalystsmallComponent } from './analystpage/analystsmall/analystsmall.component';
@@ -15,6 +15,8 @@ import { AnalystsslowestComponent } from './analystpage/analystsslowest/analysts
 import { AnalystsubpagedetailedComponent } from './analystpage/analystsubpagedetailed/analystsubpagedetailed.component';
 import { AnalystsubpagelistComponent } from './analystpage/analystsubpagelist/analystsubpagelist.component';
 import { AnalysttableComponent } from './analystpage/analysttable/analysttable.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CasesChartComponent } from './cases-chart/cases-chart.component';
 import { FooterComponent} from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -24,20 +26,12 @@ import { ModelpageComponent } from './modelpage/modelpage.component';
 import { ModelsidebarComponent } from './modelpage/modelsidebar/modelsidebar.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import {PerformanceGraphComponent} from './performance-graph/performance-graph.component';
-<<<<<<< HEAD
-import { QueuepageComponent } from './queuepage/queuepage.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { QueueperformanceComponent } from './queuepage/queueperformance/queueperformance.component';
-import { QueuequalitycontrolComponent } from './queuepage/queuequalitycontrol/queuequalitycontrol.component';
-import { QueuehighriskComponent } from './queuepage/queuehighrisk/queuehighrisk.component';
-import { QueuetoppriorityComponent } from './queuepage/queuetoppriority/queuetoppriority.component';
-=======
-
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {NgxChartsModule} from '@swimlane/ngx-charts';
-import { CasesChartComponent } from './cases-chart/cases-chart.component';
-import { AnalystGraphCasesComponent } from './analystpage/analyst-graph-cases/analyst-graph-cases.component';
-import { AnalystGraphLevelComponent } from './analystpage/analyst-graph-level/analyst-graph-level.component';
+import {QueuehighriskComponent} from './queuepage/queuehighrisk/queuehighrisk.component';
+import {QueuepageComponent} from './queuepage/queuepage.component';
+import {QueueperformanceComponent} from './queuepage/queueperformance/queueperformance.component';
+import {QueuequalitycontrolComponent} from './queuepage/queuequalitycontrol/queuequalitycontrol.component';
+import {QueuetoppriorityComponent} from './queuepage/queuetoppriority/queuetoppriority.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -62,15 +56,12 @@ import { AnalystGraphLevelComponent } from './analystpage/analyst-graph-level/an
     SidebarComponent,
     PerformanceGraphComponent,
     CasesChartComponent,
-<<<<<<< HEAD
     QueueperformanceComponent,
     QueuequalitycontrolComponent,
     QueuehighriskComponent,
     QueuetoppriorityComponent,
-=======
     AnalystGraphCasesComponent,
     AnalystGraphLevelComponent,
->>>>>>> e4a72efa9666ecb170b2e1f95601d9e18d128fe0
     //NgxChartsModule
   ],
   imports: [

@@ -50,11 +50,13 @@
                       </tr>
                       </thead>
                       <tbody>
-                      <tr mdbTableCol *ngFor="let el of elements">
-                        <th scope="row">{{el.id}}</th>
-                        <td>{{el.first}}</td>
-                        <td>{{el.last}}</td>
-                        <td>{{el.handle}}</td>
+                      <tr *ngFor="let a of data.getFastestAnalysts(data.analystData$)">
+                        {{data.getAnalystUserID(a)}}<br>
+                        <div class="analyst-sm-graph">
+                          Queue: Quality Control <br>
+                          {{data.getAnalystCasesPerDay(a)}} cases/day<br>
+                        </div>
+                        <a [routerLink]="[data.getAnalystUserID(a)]">Full View</a>
                       </tr>
                       </tbody>
                     </table>
@@ -74,11 +76,13 @@
                       </tr>
                       </thead>
                       <tbody>
-                      <tr mdbTableCol *ngFor="let el of elements">
-                        <th scope="row">{{el.id}}</th>
-                        <td>{{el.first}}</td>
-                        <td>{{el.last}}</td>
-                        <td>{{el.handle}}</td>
+                      <tr *ngFor="let a of data.getSlowestAnalysts(data.analystData$)">
+                        {{data.getAnalystUserID(a)}}<br>
+                        <div class="analyst-sm-graph">
+                          Queue: Quality Control <br>
+                          {{data.getAnalystCasesPerDay(a)}} cases/day<br>
+                        </div>
+                        <a [routerLink]="[data.getAnalystUserID(a)]">Full View</a>
                       </tr>
                       </tbody>
                     </table>
