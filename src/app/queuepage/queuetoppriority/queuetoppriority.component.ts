@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-queuetoppriority',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./queuetoppriority.component.scss']
 })
 export class QueuetoppriorityComponent implements OnInit {
-
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+
+    this.data.getQueues().subscribe(
+    );
   }
 
 }

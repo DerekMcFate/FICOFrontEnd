@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-queuehighrisk',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueuehighriskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
   }
