@@ -19,7 +19,7 @@ import {DataService} from '../data.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit, AfterContentInit {
-  constructor() {}
+  constructor(private data: DataService) {}
   ngOnInit() {}
   ngAfterContentInit() {}
 }

@@ -225,8 +225,8 @@ export class DataService {
     }
     var self = this;
     function Comparator(a, b) {
-      if (self.getAnalystCasesPerDay(a) < self.getAnalystCasesPerDay(b)) return -1;
-      if (self.getAnalystCasesPerDay(a) > self.getAnalystCasesPerDay(b)) return 1;
+      if (self.getAnalystCasesPerDay(a) > self.getAnalystCasesPerDay(b)) return -1;
+      if (self.getAnalystCasesPerDay(a) < self.getAnalystCasesPerDay(b)) return 1;
       return 0;
     }
     var fastestAnalysts = analystArr.sort(Comparator).slice(0,3);
@@ -238,8 +238,8 @@ export class DataService {
     }
     var self = this;
     function Comparator(a, b) {
-      if (self.getAnalystCasesPerDay(a) > self.getAnalystCasesPerDay(b)) return -1;
-      if (self.getAnalystCasesPerDay(a) < self.getAnalystCasesPerDay(b)) return 1;
+      if (self.getAnalystCasesPerDay(a) < self.getAnalystCasesPerDay(b)) return -1;
+      if (self.getAnalystCasesPerDay(a) > self.getAnalystCasesPerDay(b)) return 1;
       return 0;
     }
     var slowestAnalysts = analystArr.sort(Comparator).slice(0,3);
