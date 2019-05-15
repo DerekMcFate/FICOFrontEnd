@@ -61,7 +61,7 @@ export class CasesChartComponent implements OnInit {
   ngOnInit() {
     this.canShow = false;
     this.showCaseLevel = false;
-    this.data.getCases().subscribe((results) => {
+    this.data.getAllData().subscribe((results) => {
       this.processData(results);
     })
     console.log("initialized");

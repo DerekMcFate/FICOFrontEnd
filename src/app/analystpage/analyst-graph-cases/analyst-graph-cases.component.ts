@@ -16,6 +16,7 @@ import {
 } from '@angular/animations';
 import {stringify} from "querystring";
 import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {isCombinedNodeFlagSet} from 'tslint';
 
 @Component({
   selector: 'app-analyst-graph-cases',
@@ -114,7 +115,10 @@ export class AnalystGraphCasesComponent implements OnInit {
       }
       console.log("dates:", allDates);
     }
-
+    console.log("AAAAAAAAAA");
+    console.log(allDates);
+    allDates = this.data.orderDates(allDates).reverse();
+    console.log(allDates);
     for (var i = 0; i < allStatuses.length; i++) {
       var arr = []
       for (var j = 0; j < allDates.length; j++) {
@@ -131,7 +135,7 @@ export class AnalystGraphCasesComponent implements OnInit {
       };
       finalArr.push(entry);
     }
-    console.log("FinalArr step1:", finalArr);
+
     for (var i = 0; i < analystArr.length; i++) {
       // For each case...
       var element = analystArr[i];

@@ -38,7 +38,7 @@ export class AnalystsubpagedetailedComponent implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor(private data: DataService, private route: ActivatedRoute) {
+  constructor(public data: DataService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       console.log(params);
       this.analystID = params['id'];

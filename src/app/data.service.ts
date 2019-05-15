@@ -132,8 +132,51 @@ export class DataService {
   //   return newArray;
   }
 
+  public orderDates(dateArr){
+    let monthMap = {
+      "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5,
+      "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9, "OCT": 10,
+      "NOV": 11, "DEC": 12,
+    }
+    function Comparator(a, b) {
+      console.log("A,B:",a,b);
+      var yearA = "20" + a.slice(7, 9);
+      var monthA = monthMap[a.slice(3, 6)];
+      var dayA = a.slice(0,2);
+      var hoursA = a.slice(10, 12);
+      var yearB = "20" + b.slice(7, 9);
+      var monthB = monthMap[b.slice(3, 6)];
+      var dayB = b.slice(0,2);
+      if (yearA > yearB)
+        return -1;
+      else if (yearA < yearB){
+        return 1;
+      } else {
+        if (monthA > monthB)
+          return -1;
+        else if (monthA < monthB){
+          return 1;
+        } else {
+          if (dayA > dayB)
+            return -1;
+          else if (dayA < dayB){
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    }
+
+    return dateArr.sort(Comparator);
+
+  }
+
   public getOldestOpenCases(allCasesArr) {
-    //console.log("ALLCASEARR:", allCasesArr);
+    if(allCasesArr == null){
+      return [];
+    }
+//    allCasesArr = this.allData$;
     function Comparator(a, b) {
       if (a[0]['CASE_CREATED_DTTM'] > b[0]['CASE_CREATED_DTTM']) return -1;
       if (a[0]['CASE_CREATED_DTTM'] < b[0]['CASE_CREATED_DTTM']) return 1;
@@ -176,18 +219,27 @@ export class DataService {
       return retVal;
   }
   public getFastestAnalysts(analystArr) {
+    console.log(this);
+    if(analystArr == null){
+      return [];
+    }
+    var self = this;
     function Comparator(a, b) {
-      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return -1;
-      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return 1;
+      if (self.getAnalystCasesPerDay(a) < self.getAnalystCasesPerDay(b)) return -1;
+      if (self.getAnalystCasesPerDay(a) > self.getAnalystCasesPerDay(b)) return 1;
       return 0;
     }
     var fastestAnalysts = analystArr.sort(Comparator).slice(0,3);
     return fastestAnalysts;
   }
   public getSlowestAnalysts(analystArr){
+    if(analystArr == null){
+      return [];
+    }
+    var self = this;
     function Comparator(a, b) {
-      if (a[0]['CASES_PER_DAY'] < b[0]['CASES_PER_DAY']) return -1;
-      if (a[0]['CASES_PER_DAY'] > b[0]['CASES_PER_DAY']) return 1;
+      if (self.getAnalystCasesPerDay(a) > self.getAnalystCasesPerDay(b)) return -1;
+      if (self.getAnalystCasesPerDay(a) < self.getAnalystCasesPerDay(b)) return 1;
       return 0;
     }
     var slowestAnalysts = analystArr.sort(Comparator).slice(0,3);
@@ -197,7 +249,7 @@ export class DataService {
     return analyst[0]['USER_ID'];
   }
   public getAnalystCasesPerDay(analyst){
-    return analyst[0]['CASES_PER_DAY'];
+    return ((analyst.length/7.0).toFixed(2));
   }
   public getAnalystCaseLevel(analyst){
     return analyst[0]['CASE_LEVEL_'];
@@ -220,7 +272,7 @@ export class DataService {
   }
 
   public getAnalystScoreColor(analyst){
-    var score = this.getAnalystScore(analyst);
+    var score = +this.getAnalystScore(analyst);
     if (score > 70){
       return '#00FF00';
     } else if (score < 30) {
@@ -230,6 +282,6 @@ export class DataService {
     }
   }
   public getAnalystScore(analyst) {
-    return analyst[0]['EFFICIENCY_SCORE'];
+    return (analyst.length*7*3.0/7.0).toFixed(2);
   }
 }

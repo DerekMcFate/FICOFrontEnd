@@ -4,6 +4,8 @@ import{NgxChartsModule} from '@swimlane/ngx-charts';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {el} from '@angular/platform-browser/testing/src/browser_util';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-performance-graph',
@@ -16,10 +18,11 @@ export class PerformanceGraphComponent implements OnInit {
   closedCases: any[];
   openCases: any[];
   totalCases: number;
-  
+  linear: any;
   // results array for graph
   allData: any[];
-
+  allDates: any[];
+  maxY = 3.0;
   view = [600, 500];
   timeline = true;
   animations = true;
@@ -34,15 +37,16 @@ export class PerformanceGraphComponent implements OnInit {
   yAxisLabel = 'Number of Cases';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#00337755', '#FF888855', '#00FF0055',]
   };
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.linear = "ordinal";
     this.canShow = false;
     this.totalCases = 0;
-    this.data.getQueues().subscribe((results) => {
+    this.data.getAllData().subscribe((results) => {
       this.processData(results);
     })
   }
@@ -53,12 +57,26 @@ export class PerformanceGraphComponent implements OnInit {
     // key for these two will be the date 
     this.closedCases = [];
     this.openCases = [];
+    this.allDates = [];
     this.allData = [];
-    
-    var closed = [];   
+    var closed = [];
+    cases.forEach(element => {
+      var dateString = element.QUEUE_PROCESS_DTTM.substring(0,9);
+      if(!this.allDates[element]){
+        this.allDates.push(dateString);
+      }
+    });
+    console.log("UNORDERED DATES", this.allDates);
+    this.allDates = this.data.orderDates(this.allDates).reverse();
+    console.log("ORDERED DATES", this.allDates);
+    this.allDates.forEach(element => {
+      this.openCases[element] = 0;
+      this.closedCases[element] = 0;
+    });
     cases.forEach(element => {
       // increment counter if status exists
       var dateString = element.QUEUE_PROCESS_DTTM.substring(0,9);
+
       var status = element.CASE_STATUS_TYPE_CD; 
       var closedOrOpen = "Closed";
       switch(status){
@@ -80,6 +98,18 @@ export class PerformanceGraphComponent implements OnInit {
         status: closedOrOpen
       }
       closed.push(singleEntry);
+/*
+      if (this.closedCases.includes(dateString)){
+        ;
+      } else {
+        this.closedCases[dateString] = 0;
+      }
+      if (this.openCases.includes(dateString)){
+        ;
+      } else {
+        this.openCases[dateString] = 0;
+      }
+  */
       if(closedOrOpen === "Closed") {
         if(this.closedCases[dateString]) {
           this.closedCases[dateString]++;
@@ -88,12 +118,14 @@ export class PerformanceGraphComponent implements OnInit {
         }
       }else{
         if(this.openCases[dateString]) {
+          console.log("OPENING");
           this.openCases[dateString]++;
         } else {
           this.openCases[dateString] = 1;
         }
       }
     });
+
     //console.log(this.closedCases);
     //console.log(this.openCases);
     let AllEntry = {
@@ -131,9 +163,11 @@ export class PerformanceGraphComponent implements OnInit {
       //ClosedEntry,
       //OpenEntry
     }
+
     this.allData.push(OpenEntry);
     this.allData.push(ClosedEntry);
     this.allData.push(AllEntry);
+    this.allData= this.allData.reverse();
     console.log("line format:", this.allData);
     this.canShow = true;
   }
