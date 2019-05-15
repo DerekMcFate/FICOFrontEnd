@@ -41,50 +41,68 @@
             <div class="row pt-3">
               <div class = "col-md">
                 <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
-                  <mdb-card-title>Slowest Analysts</mdb-card-title>
-                  <mdb-card-body>
-                    <table  mdbTable small="true" responsive="true">
-                      <thead>
+                  <mdb-card-title >Fastest Analysts</mdb-card-title>
+                  <mdb-card-body >
+                    <table  mdbTable small="true" responsive="true"  >
                       <tr>
-                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                          <th>
+                            User ID
+                          </th>
+                          <th>
+                            Cases/Day
+                          </th>
+                          <th>
+                            Score
+                          </th>
                       </tr>
-                      </thead>
-                      <tbody>
-                      <tr *ngFor="let a of data.getFastestAnalysts(data.analystData$)">
-                        {{data.getAnalystUserID(a)}}<br>
-                        <div class="analyst-sm-graph">
-                          Queue: Quality Control <br>
+                      <tr *ngFor="let a of data.getSlowestAnalysts(data.analystData$)">
+                      <td>
+                        {{data.getAnalystUserID(a)}}
+                      <td>
+                        <td>
                           {{data.getAnalystCasesPerDay(a)}} cases/day<br>
-                        </div>
-                        <a [routerLink]="[data.getAnalystUserID(a)]">Full View</a>
+                        </td>
+
+                        <td>
+                          {{data.getAnalystScore(a)}}
+                        </td>
                       </tr>
-                      </tbody>
+
                     </table>
                   </mdb-card-body>
-                </mdb-card>
+              </mdb-card>
 
               </div>
               <div class = "col-md">
 
                 <mdb-card class="text-black mb-3" bgColor="bg-info-color" style="max-width: 40rem">
-                  <mdb-card-title>Quickest Analysts</mdb-card-title>
-                  <mdb-card-body>
-                    <table  mdbTable small="true" responsive="true">
-                      <thead>
+                  <mdb-card-title >Slowest Analysts</mdb-card-title>
+                  <mdb-card-body >
+                    <table  mdbTable small="true" responsive="true"  >
                       <tr>
-                        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        <th>
+                          User ID
+                        </th>
+                        <th>
+                          Cases/Day
+                        </th>
+                        <th>
+                          Score
+                        </th>
                       </tr>
-                      </thead>
-                      <tbody>
-                      <tr *ngFor="let a of data.getSlowestAnalysts(data.analystData$)">
-                        {{data.getAnalystUserID(a)}}<br>
-                        <div class="analyst-sm-graph">
-                          Queue: Quality Control <br>
+                      <tr *ngFor="let a of data.getFastestAnalysts(data.analystData$)">
+                        <td>
+                          {{data.getAnalystUserID(a)}}
+                        <td>
+                        <td>
                           {{data.getAnalystCasesPerDay(a)}} cases/day<br>
-                        </div>
-                        <a [routerLink]="[data.getAnalystUserID(a)]">Full View</a>
+                        </td>
+
+                        <td>
+                          {{data.getAnalystScore(a)}}
+                        </td>
                       </tr>
-                      </tbody>
+
                     </table>
                   </mdb-card-body>
                 </mdb-card>
