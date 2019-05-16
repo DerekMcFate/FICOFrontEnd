@@ -7,7 +7,7 @@ import {DataService} from '../../data.service';
   styleUrls: ['./queuetoppriority.component.scss']
 })
 export class QueuetoppriorityComponent implements OnInit {
-  constructor(private data: DataService) { }
+  constructor(public data: DataService) { }
 
   ngOnInit() {
 

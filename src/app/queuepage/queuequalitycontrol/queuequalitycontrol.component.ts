@@ -11,7 +11,7 @@ export class QueuequalitycontrolComponent implements OnInit {
   queues$: Object;
   elements: Object;
 
-  constructor(private data: DataService) { }
+  constructor(public data: DataService) { }
 
   ngOnInit() {
 
