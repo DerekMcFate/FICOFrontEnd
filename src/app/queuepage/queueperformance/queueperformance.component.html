@@ -1,0 +1,68 @@
+<div class="fico-row">
+  <mdb-card>
+    <mdb-card-title>
+      <h3>Queue Performance</h3>
+    </mdb-card-title>
+    <mdb-card-body>
+      <mdb-card-text class="fico-card-text">
+        <div class="row fico-row">
+          <div class="col-12 fico-col">
+            <div class="row fico-selector-row">
+              <div class="col-6">
+                <script>
+                  // Material Select Initialization
+                  $(document).ready(function () {
+                    $('.mdb-select').material_select();
+                  });
+                </script>
+                <span class=" info-color-light p-2">Show: </span>
+                <select class="mdb-select colorful-select dropdown-info fico-selector">
+                  <option value="" disabled>Choose time period</option>
+                  <option value="1">Today</option>
+                  <option value="2">Day</option>
+                  <option value="3">Week</option>
+                  <option value="3">Month</option>
+                  <option value="3">Quarter</option>
+                  <option value="3">Year</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <script> $('.datepicker').pickadate();</script>
+                <span class="info-color-light p-2">Compare to: </span>
+                <select class="mdb-select colorful-select dropdown-info fico-selector">
+                  <option value="" disabled>Choose time period</option>
+                  <option value="1">Today</option>
+                  <option value="2">Day</option>
+                  <option value="3">Week</option>
+                  <option value="3">Month</option>
+                  <option value="3">Quarter</option>
+                  <option value="3">Year</option>
+                </select>
+              </div>
+            </div>
+            <div class="row fico-row">
+              <mdb-card>
+                <mdb-card-title>
+                  <h4>Overall Performance</h4>
+                </mdb-card-title>
+                <mdb-card-body>
+                  <mdb-card-text class="fico-card-text">
+                    This panel will contain "Overall" queue performance information as soon as it becomes available. Status Reading will also appear here.
+                  </mdb-card-text>
+                </mdb-card-body>
+              </mdb-card>
+            </div>
+
+            <div class="row pt-3" >
+              <mdb-card>
+                <mdb-card-body class="graph-elem">
+                  "Queue Performance Over Time" Graph will appear in this panel
+                </mdb-card-body>
+              </mdb-card>
+            </div>
+          </div>
+        </div>
+      </mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
+</div>

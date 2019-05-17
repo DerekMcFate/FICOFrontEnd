@@ -7,17 +7,10 @@ import { DataService } from '../data.service';
   styleUrls: ['./queuepage.component.scss']
 })
 export class QueuepageComponent implements OnInit {
-
-  queues$: Object;
-  headElements: Object;
-  elements: Object;
   
-  constructor(private data: DataService) {
+  constructor() {
   }
 
-  ngOnInit() {
-    this.data.getQueues().subscribe(
-      data => this.queues$ = data
-    );
-  }
+  ngOnInit() {}
+
 }
