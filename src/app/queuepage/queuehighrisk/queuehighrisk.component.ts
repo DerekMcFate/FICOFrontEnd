@@ -8,7 +8,7 @@ import {DataService} from '../../data.service';
 })
 export class QueuehighriskComponent implements OnInit {
 
-  constructor(private data: DataService) { }
+  constructor(public data: DataService) { }
 
   ngOnInit() {
   }
